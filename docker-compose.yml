@@ -1,0 +1,8 @@
+version: '3'
+services: 
+  web:
+    build: .
+    ports: 
+      - "4301:4200"
+  redis: 
+    image: "quizrt-social-client"
