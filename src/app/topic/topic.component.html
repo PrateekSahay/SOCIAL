@@ -1,31 +1,27 @@
 <div class="TopicInfo">
-  <div class="Topic">
-    <div class="title">
-      <img class="ProfilePic" src="../../../img/male-icon-4.jpg" ref="Add image">
-      <div class="item">
-        <!-- <mat-card-title> -->
-        <h2 id="title">{{name}}</h2>
-        <!-- </mat-card-title> -->
-        <button mat-raised-button (click)="gotoGameplay()" color="primary">
-          <h3 id="playbutton">Play</h3>
-        </button>
-        <button mat-button>
-          <h3>+ Follow</h3>
-        </button>
-      </div>
-      <!-- </mat-card-header> -->
-      <!-- <mat-card-content> -->
-      <h6>Followers</h6>
-      <h6>Game Played</h6>
+  <div class="title">
+    <div class="item">
+      <!-- <mat-card-title> -->
+      <h4 id="title">{{name}}</h4>
+      <!-- </mat-card-title> -->
+      <button mat-raised-button (click)="gotoGameplay()">
+        Play
+      </button>
+      <button mat-button>
+        + Follow
+      </button>
     </div>
+    <!-- </mat-card-header> -->
+    <!-- <mat-card-content> -->
+    <h6>Followers</h6>
+    <h6>Game Played</h6>
   </div>
-
 
   <div class="posts">
 
     <div class="WritePost">
       <textarea name="textarea" rows="5" cols="59" placeholder="Write your post here"></textarea>
-      <button mat-raised-button color="primary">Post</button>
+      <button mat-raised-button>Post</button>
     </div>
 
     <h2>All Posts</h2>
@@ -56,7 +52,6 @@
           </mat-expansion-panel>
         </mat-card-actions>
       </mat-card>
-
     </div>
   </div>
 </div>

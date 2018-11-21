@@ -1,25 +1,44 @@
-.example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.Info{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+a {
+  color: inherit;
+}
+
+mat-header-cell {
+  justify-content: center;
+  padding: 0%;
+}
+
+mat-cell {
+  justify-content: center;
+  padding: 0%;
+}
+
+.post-header-image {
+  background-image: url("../../../img/male-icon-4.jpg");
+}
+
+@media(max-width: 320px) {
+  .Info {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
   }
 
-  @media(max-width: 425px) {
-    
-    .ProfilePic{
-        width: 80px;
-        height: 80px;
-        padding-right: 16px;
-    }
-
-    textarea {
-      resize: none;
-      width: 100%;
-      margin: 0%;
-      padding: 0%;
-      border: 0.1%;
-    }
+  .Info img {
+    width: 80px;
+    height: 80px;
   }
+
+  h5, h6 {
+    margin: 2%;
+  }
+
+  .WritePost {
+    margin-top: 4vh;
+  }
+
+}

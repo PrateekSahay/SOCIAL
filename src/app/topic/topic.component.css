@@ -2,13 +2,19 @@
   justify-content: space-evenly;
 }
 
-.Topic {
+.title {
   margin: 3%;
+  float: left;
+  margin-left: 10%;
 }
 
 .ProfilePic {
   width: 80px;
   height: 80px;
+}
+
+h4 {
+  color: white;
 }
 
 .posts {
@@ -51,7 +57,7 @@ mat-expansion-panel {
     justify-content: space-around;
   }
   #playbutton {
-    margin: 0%;
+    height: 3vh;
   }
   #title {
     margin: auto;

@@ -5,13 +5,17 @@
 }
 
 img {
-    width: 10rem;
+    width: 5rem;
 }
 
 .Topic {
     display: grid;
     justify-items: center;
     width: 15rem;
+}
+
+a {
+    color: inherit;
 }
 
 
