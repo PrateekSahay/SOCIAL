@@ -42,8 +42,6 @@ export class TopicComponent implements OnInit {
     this.route.paramMap.subscribe(params => { this.name = params.get("id") })
     console.log(this.name);
 
-    
-
   }
 
 //   getTopicPosts() {

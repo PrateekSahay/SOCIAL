@@ -1,44 +1,105 @@
-a {
-    color: #000;
-}
-
-
-
-.Topics {
+.Topics-flex_container {
     display: flex;
-    flex-flow: row wrap;
-    
+    flex-flow: row wrap;    
+    justify-content: space-around;
 }
 
-.Topic {
-    display: grid;
-    justify-items: center;
-    width: 10rem;
-}
-
-.Topics img {
-    width: 5rem;
-    margin-bottom: 2%;
+.Topic-action_buttons {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
 }
 
 h4 {
-    color: white;
+    margin: 3%;
 }
 
-@media(max-width: 425px) {
-    .mat-card-content>:first-child, .mat-card>:first-child {
-        margin-top: 0;
-        justify-content: space-around;
+@media(max-width: 360px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    } 
+    
+    .Topic-card__content {
+        height: 10vh;
     }
-    .ProfilePic {
-        width: 80px;
-        height: 80px;
+}
+
+@media(min-width: 375px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 17rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 13vh;
     }
-    .UserInfo {
-        flex-flow: column wrap;
+}
+
+@media(min-width: 425px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 20rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 15vh;
     }
-    .Topics {
-        flex-flow: column wrap;
+}
+
+@media(min-width: 527px){
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 10vh;
+    }
+}
+
+@media(min-width: 768px){
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 10vh;
+    }
+}
+
+@media(min-width: 1024px) {
+    .Topic-card__content {
+        height: 10vh;
     }
     
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }
 }

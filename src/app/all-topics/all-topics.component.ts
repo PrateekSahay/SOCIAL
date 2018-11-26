@@ -9,9 +9,7 @@ import { DataCollectionService } from '../data-collection.service';
 export class AllTopicsComponent implements OnInit {
 
   topics: any;
-  pageData: any;
-  pageNo = 5;
-  
+    
   constructor(private topicsService: DataCollectionService ) { }
 
   ngOnInit() {
@@ -21,6 +19,10 @@ export class AllTopicsComponent implements OnInit {
         console.log("Topics", this.topics);
       }
     )
+}
+
+gotoGameplay(){
+  window.location.href = "http://172.23.238.164:4202/play";
 }
 
 }

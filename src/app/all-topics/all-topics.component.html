@@ -1,15 +1,18 @@
-<!-- <div class="Category"> -->
-<h4>Topics</h4>
-<div class="Topics">
-  <div *ngFor="let a of topics" class="Topic">
-    <img src="../../../img/imagetopic.png">
-    <a routerLink="/topics/{{a.topic_name}}">{{a.topic_name}}</a>
+<div class="Topics-container">
+  <h4>Topics</h4>
+  <div class="Topics-flex_container">
+    <div *ngFor="let topic of topics">
+      <mat-card class="Topic-card">
+        <mat-card-content class="Topic-card__content">
+        <mat-card-title>
+          {{topic.topic_name}}
+        </mat-card-title>
+        </mat-card-content>
+        <mat-card-actions class="Topic-action_buttons">
+          <button mat-button (click)="gotoGameplay()" routerLinkActive="active">Play</button>
+          <button mat-button routerLink="/topics/{{topic.topic_name}}">View</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
-<!--   
-  <mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              (page)="pageEvent = $event">
-</mat-paginator> -->
-
 </div>
- 

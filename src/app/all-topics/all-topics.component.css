@@ -1,44 +1,105 @@
-.Topics {
+.Topics-flex_container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row wrap;    
     justify-content: space-around;
 }
 
-img {
-    width: 5rem;
+.Topic-action_buttons {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
 }
 
-.Topic {
-    display: grid;
-    justify-items: center;
-    width: 15rem;
+h4 {
+    margin: 3%;
 }
 
-a {
-    color: inherit;
-}
-
-
-@media(max-width: 320px) {
-    mat-card {
-        width: 90%;
+@media(max-width: 360px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    } 
+    
+    .Topic-card__content {
+        height: 10vh;
     }
 }
 
-@media(max-width: 375px) {
-    mat-card {
-        width: 90%;
+@media(min-width: 375px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 17rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 13vh;
     }
 }
 
-@media(max-width: 425px) {
-    mat-card {
-        width: 90%;
+@media(min-width: 425px) {
+    .Topic-card {
+        border-radius: 8px;
+        width: 20rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 15vh;
     }
 }
 
-@media(max-width: 768px) {
-    .Topics {
-        justify-content: space-evenly;
+@media(min-width: 527px){
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 10vh;
+    }
+}
+
+@media(min-width: 768px){
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
+    }  
+
+    .Topic-card__content {
+        height: 10vh;
+    }
+}
+
+@media(min-width: 1024px) {
+    .Topic-card__content {
+        height: 10vh;
+    }
+    
+    .Topic-card {
+        border-radius: 8px;
+        width: 15rem;
+        padding: 1rem;
+        color: whitesmoke;
+        background: #878472;
+        margin-top: 30px;
     }
 }
