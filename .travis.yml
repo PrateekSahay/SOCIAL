@@ -20,7 +20,6 @@ notifications:
 before_script:
   - npm install -g @angular-devkit/build-angular
   - npm install -g @angular/cli
-  - npm install
 
 script:
   -ng build
