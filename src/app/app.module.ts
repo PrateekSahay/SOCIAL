@@ -16,6 +16,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,10 +60,12 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     MatDividerModule,
     MatButtonToggleModule,
+    MatGridListModule,
     MatFormFieldModule,
     MatListModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
     MatProgressBarModule,
     MatCardModule,
     MatSidenavModule,

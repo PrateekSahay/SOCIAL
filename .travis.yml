@@ -1,0 +1,28 @@
+language: node_js
+
+node_js: 
+  - '10.11.0' 
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+  slack: CGIwave6:GDPP3DAMP
+
+before_script:
+  - npm install -g @angular-devkit/build-angular
+  - npm install -g @angular/cli
+  - npm instal
+
+script:
+  -ng build
+  -ng test
+

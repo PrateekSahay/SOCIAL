@@ -4,8 +4,7 @@
 
 .mat-toolbar {
   height: 10vh;
-  background-color: #575A5E;
-  text-decoration-color: #F4F7F5;
+  background-color: #DE541E;
 }
 
 div {
@@ -42,10 +41,10 @@ button {
 }
 
 .mat-sidenav-content {
-  background-color: #A7A2A9;
+  background-color: #D6D6B1;
 }
 
 .mat-drawer-container {
-  color:#F4F7F5;
+  color:#3F3F37;
 }
 
