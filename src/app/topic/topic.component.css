@@ -1,66 +1,29 @@
-.TopicInfo {
-  justify-content: space-evenly;
-}
-
-.title {
-  margin: 3%;
-  float: left;
-  margin-left: 10%;
-}
-
-h4 {
-  color: #3F3F37;
-}
-
-.posts {
-  margin: 3%;
-}
-
-.post-card {
-  max-width: 400px;
-  /* justify-content: center; */
-}
-
-.post-header-image {
-  background-size: cover;
-}
-
-.WritePost {
-  display: inline-grid;
-}
-
-mat-expansion-panel {
-  margin: 0;
-  width: 100%;
-  /* padding: 0; */
-}
-
 @media(max-width: 320px) {
-  .ProfilePic {
-    width: 80px;
-    height: 80px;
-  }
   textarea {
-    resize: none;
-  }
-  .title {
-    justify-content: center;
-    margin-bottom: 6%;
-    width: 95%;
-  }
-  mat-card-content {
-    justify-content: space-around;
-  }
-  #playbutton {
-    height: 3vh;
-  }
-  #title {
-    margin: auto;
+    width: 90%;
   }
 }
 
-@media(min-width: 725px) {
-  .Topic{
-    float: left;
+@media(max-width: 375px) {
+  textarea {
+    width: 90%;
   }
+}
+
+@media(max-width: 425px) {
+  textarea {
+    width: 90%;
+  }
+}
+
+@media(min-width: 560px) {
+  .title {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  textarea{
+    width: 90%;
+  }
+
 }
