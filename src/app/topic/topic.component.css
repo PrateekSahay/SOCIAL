@@ -1,3 +1,17 @@
+textarea {
+  border-radius: 8px;
+  border-color: #05668D;
+  background-color: #F0F3BD;
+}
+
+button {
+  font-size: 20px;
+}
+
+::placeholder {
+  font-size: 25px;
+}
+
 @media(max-width: 320px) {
   textarea {
     width: 90%;
@@ -22,8 +36,41 @@
     justify-content: space-evenly;
   }
 
-  textarea{
+  textarea {
     width: 90%;
   }
+}
 
+@media(min-width: 900px) {
+  .title {
+    display: block;
+    float: left;
+    margin-left: 10%;
+    margin-top: 5%;
+    text-align: left;
+  }
+
+  .posts {
+    width: 50%;
+    float: right;
+    margin-top: 5%;
+    margin-right: 9%;
+  }
+}
+
+@media(min-width: 1800px) {
+  .title {
+    display: block;
+    float: left;
+    margin-left: 10%;
+    margin-top: 5%;
+    text-align: left;
+  }
+
+  .posts {
+    width: 30%;
+    float: right;
+    margin-top: 5%;
+    margin-right: 20%;
+  }
 }

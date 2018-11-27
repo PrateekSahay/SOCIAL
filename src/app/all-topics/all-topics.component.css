@@ -1,6 +1,6 @@
 .Topics-flex_container {
     display: flex;
-    flex-flow: row wrap;    
+    flex-flow: row wrap;
     justify-content: space-around;
 }
 
@@ -8,22 +8,34 @@
     display: flex;
     flex-direction: row;
     flex: 1 1 auto;
+    justify-content: space-around;
+}
+
+.mat-stroked-button {
+    border: none;
 }
 
 h4 {
     margin: 3%;
 }
 
-@media(max-width: 360px) {
+.Topic-card {
+    color: #F0F3BD;
+    background: #028090;
+}
+
+button {
+    background-color: #05668D;
+    margin: 0%;
+}
+
+@media(max-width: 320px) {
     .Topic-card {
         border-radius: 8px;
         width: 15rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
-    } 
-    
+    }
     .Topic-card__content {
         height: 10vh;
     }
@@ -34,11 +46,8 @@ h4 {
         border-radius: 8px;
         width: 17rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
-    }  
-
+    }
     .Topic-card__content {
         height: 13vh;
     }
@@ -49,41 +58,32 @@ h4 {
         border-radius: 8px;
         width: 20rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
-    }  
-
+    }
     .Topic-card__content {
         height: 15vh;
     }
 }
 
-@media(min-width: 527px){
+@media(min-width: 527px) {
     .Topic-card {
         border-radius: 8px;
         width: 15rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
-    }  
-
+    }
     .Topic-card__content {
         height: 10vh;
     }
 }
 
-@media(min-width: 768px){
+@media(min-width: 768px) {
     .Topic-card {
         border-radius: 8px;
         width: 15rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
-    }  
-
+    }
     .Topic-card__content {
         height: 10vh;
     }
@@ -93,13 +93,10 @@ h4 {
     .Topic-card__content {
         height: 10vh;
     }
-    
     .Topic-card {
         border-radius: 8px;
         width: 15rem;
         padding: 1rem;
-        color: whitesmoke;
-        background: #878472;
         margin-top: 30px;
     }
 }
