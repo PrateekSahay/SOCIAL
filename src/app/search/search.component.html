@@ -1,16 +1,26 @@
+<div>
 <form class="mysearch">
-  <input type="search" id="Search" name="q" placeholder="Search Topics...">
-  <button mat-raised-button id="searchbutton" color="primary">Search</button>
+  <input type="text" id="Search" placeholder="Search Topics..." [(ngModel)]='subject' [ngModelOptions]="{standalone: true}">
+  <button mat-stroked-button id="SearchButton" (click)="getSearchResult()">Search</button>
 </form>
+</div>
 
-  <mat-card *ngFor="let x of item">
-    <!-- <img mat-card-image src="../../../img/male-icon-4.jpg"> -->
-    <mat-card-title>{{x.topic_name}}</mat-card-title>
-  </mat-card>
-
-  {{display}}
-<!--   
-  <mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              (page)="pageEvent = $event">
-</mat-paginator> -->
+<div class="Topics-container">
+  <h4>Topics</h4>
+  <div class="Topics-flex_container">
+    <div *ngFor="let item of thatArray">
+      <mat-card class="Topic-card">
+        <mat-card-content class="Topic-card__content">
+        <mat-card-title>
+          {{item.topic_name}}
+        </mat-card-title>
+        </mat-card-content>
+        <mat-card-actions class="Topic-action_buttons">
+          <button mat-stroked-button (click)="gotoGameplay()" routerLinkActive="active">Play</button>
+          <button mat-stroked-button routerLink="/topics/{{item.topic_name}}">View</button>
+          <button mat-stroked-button routerLink="#">Follow</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
