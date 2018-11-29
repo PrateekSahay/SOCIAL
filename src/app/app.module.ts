@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,9 +34,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { TopicComponent } from './topic/topic.component';
 import { PublicprofileComponent } from './publicprofile/publicprofile.component';
 import { SearchComponent } from './search/search.component';
-import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
+// import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
 import { getAuthServiceConfigs } from "./socialloginConfig";
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +49,7 @@ import { LoginComponent } from './login/login.component';
     UserprofileComponent,
     TopicComponent,
     PublicprofileComponent,
-    SearchComponent,
-    LoginComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -76,14 +75,14 @@ import { LoginComponent } from './login/login.component';
     MatExpansionModule,
     MatPaginatorModule,
     FlexLayoutModule,
-    SocialLoginModule
+    MatTabsModule
   ],
   providers: [
     AllTopicsComponent,
-    {
-      provide:AuthServiceConfig,
-      useFactory:getAuthServiceConfigs
-    },
+    // {
+    //   provide:AuthServiceConfig,
+    //   useFactory:getAuthServiceConfigs
+    // },
     MatIconRegistry
   ],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCollectionService } from '../data-collection.service';
 import { ActivatedRoute, Data } from '@angular/router';
-import { someClass } from './search.model';
+import { SearchClass } from './search.model';
 
 @Component({
   selector: 'app-search',
@@ -11,60 +11,50 @@ import { someClass } from './search.model';
 
 export class SearchComponent implements OnInit {
 
-  SearchResult = [];
-  Title: string;
+  title: string;
   display : string;
-  TopicSearch: any;
-  start_index = 0;
-  number_of_elements_to_remove = 0;
+  topicSearch: any;
   subject: string = "";
 
-  thatArray : any[]
+  searchResult : any[]
 
   constructor(
     private route: ActivatedRoute,
-    private TopicsService: DataCollectionService
+    private topicsService: DataCollectionService
   ) { }
 
   ngOnInit() {
-    // this.route.queryParams.subscribe((data) => {
-    //   this.Title = data['q'];
-      // console.log(this.subject);
-    
-
-    // this.SearchService.getTopics().subscribe(
-    //   (data) => {
-    //     this.SearchResult = data;
-    //     console.log("SearchResult", this.SearchResult);
-    //   }
-    // )
     this.getSearchResult();
   }
 
   getSearchResult() {
-    this.thatArray = []
-    this.TopicsService.getTopics().subscribe(
+    this.searchResult = []
+    this.topicsService.getTopics().subscribe(
       (data) => {
-        this.TopicSearch = data;
-        console.log("TopicSearch", this.TopicSearch)
-        for (let item of this.TopicSearch) {
+        this.topicSearch = data;
+        console.log("TopicSearch", this.topicSearch)
+        for (let item of this.topicSearch) {
           console.log(item.topic_name);
           if(this.subject == item.topic_name){
             console.log(item)
-            var scls = new someClass()
+            var topic = new SearchClass()
             // scls.topic_name = item.topic_name
-            scls.posts = item.posts
-            scls.topic_id = item.topic_id
-            scls.topic_image = item.topic_image
-            scls.topic_name = item.topic_name
-            this.thatArray.push(scls)
+            topic.posts = item.posts
+            topic.topic_id = item.topic_id
+            topic.topic_image = item.topic_image
+            topic.topic_name = item.topic_name
+            this.searchResult.push(topic)
             // this.SearchResult.splice(this.start_index, this.number_of_elements_to_remove, item);
             // console.log("SearchResult", this.SearchResult);
             // this.display=item.topic_name;
           }
         }
-        console.log("---length---"+this.thatArray.length)
-        console.log(this.thatArray);
+        console.log("---length---"+this.searchResult.length)
+        console.log(this.searchResult);
       })
+  }
+
+  gotoGameplay(){
+    window.location.href = "http://172.23.238.164:4202/play";
   }
 }

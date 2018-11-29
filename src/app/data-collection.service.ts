@@ -6,21 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataCollectionService {
 
-  ltopic:string="name";
-  limage:string="image";
-
   constructor(private http: HttpClient) { }
 
   getTopics()
   {
-    // return this.http.get("http://172.23.238.164:8080/api/quizrt/template");
-    //return this.http.get("http://172.23.238.164:8081/api/values/getTopics");
-    return this.http.get("http://localhost:5000/api/values/getTopics");
+    return this.http.get("http://172.23.238.164:8089/api/topics");
   }
-  getPosts()
+  getPosts(topicname : string)
   {
-   return this.http.get("http://172.23.238.164:8081/api/values/posts/occupation");
-  //  return this.http.get("http://localhost:5000/api/values/posts/occupation");
+   return this.http.get("http://172.23.238.164:8089/api/posts/"+topicname);
   }
   postUser(user)
   {

@@ -1,6 +1,5 @@
-.Info{
+.UserInfo {
   display: flex;
-  flex-flow: row wrap;
 }
 
 a {
@@ -21,24 +20,132 @@ mat-cell {
   background-image: url("../../../img/male-icon-4.jpg");
 }
 
+.Post {
+  justify-content: center;
+}
+
+mat-card {
+  max-width: 400px;
+}
+
 @media(max-width: 320px) {
-  .Info {
+  .UserInfo {
     flex-flow: column wrap;
     justify-content: center;
     margin-top: 4vh;
   }
-
-  .Info img {
+  .UserInfo img {
     width: 80px;
     height: 80px;
   }
-
   h5, h6 {
     margin: 2%;
   }
-
   .WritePost {
     margin-top: 4vh;
   }
+}
 
+@media(max-width: 375px) {
+  .UserInfo {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
+  }
+  .UserInfo img {
+    width: 80px;
+    height: 80px;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+}
+
+@media(max-width: 425px) {
+  .UserInfo {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
+  }
+  .UserInfo img {
+    width: 80px;
+    height: 80px;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+}
+
+@media(max-width: 768px) {
+  .UserInfo {
+    flex-flow: row wrap;
+    margin-top: 4vh;
+    justify-content: space-around;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+    margin-top: 27%;
+  }
+  .User{
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 0%;
+  }
+  .Leaderboard {
+    width: 60%;
+  }
+  textarea {
+    width: 90%;
+  }
+}
+@media(max-width: 1024px) {
+  .UserInfo {
+    flex-flow: column;
+    justify-content: center;
+    float: left;
+    margin-left: 5%;
+    margin-top: 4vh;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+  }
+  .User{
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 0%;
+  }
+  .Leaderboard {
+    width: 130%;
+    margin-top: 5%;
+  }
+  textarea {
+    width: 100%;
+  }
+
+  .Posts {
+    float: right;
+    margin-right: 10%;
+  }
 }

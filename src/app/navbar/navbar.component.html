@@ -1,40 +1,53 @@
-<div> 
-  <mat-toolbar color="primary">
-    <div fxShow="true" fxHide.gt-sm="true">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
+<!-- Toolbar begins -->
 
-    <a mat-button class="companyName" routerLink="/">
-      <span>QuizRT</span>
+<mat-toolbar color="primary">
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <a mat-button class="AppName" routerLink="/">
+    <span>QuizRT</span>
+  </a>
+  <span class="spacer"></span>
+
+  <!-- Display items on laptop view in toolbar -->
+
+  <div fxShow="true" fxHide.lt-md="true">
+    <a mat-button routerLink="">Home</a>
+    <a mat-button routerLink="topics">Topics</a>
+    <a mat-button routerLink="messages">Message</a>
+    <a mat-button routerLink="notification">Notifications</a>
+    <a mat-button routerLink="search">
+      <mat-icon>search</mat-icon>Search
     </a>
-    <span class="example-spacer"></span>
-    <div fxShow="true" fxHide.lt-md="true">
+    <button mat-button routerLink="viewprofile">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+
+  <!-- display content in mobile view -->
+
+  <mat-icon fxShow="false" fxHide.lt-md="false" routerLink="search">search</mat-icon>
+  <button mat-button fxShow="false" fxHide.lt-md="false" routerLink="viewprofile">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<!-- Display content in sidenav-container in mobile view -->
+
+<mat-sidenav-container fxFlexFill class="sidenav-container">
+  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+    <div fxLayout="column">
       <a mat-button routerLink="">Home</a>
       <a mat-button routerLink="topics">Topics</a>
       <a mat-button routerLink="messages">Message</a>
       <a mat-button routerLink="notification">Notifications</a>
-      <a mat-button routerLink="search"><mat-icon>search</mat-icon>Search</a>
-      <button mat-button routerLink="viewprofile"><mat-icon>account_circle</mat-icon></button>
     </div>
-    <mat-icon fxShow="false" fxHide.lt-md="false" routerLink="search">search</mat-icon>
-    <button mat-button fxShow="false" fxHide.lt-md="false" routerLink="viewprofile"><mat-icon>account_circle</mat-icon></button>
-
-  </mat-toolbar>
-  <mat-sidenav-container fxFlexFill class="example-container">
-
-    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-      <div fxLayout="column">
-        <a mat-button routerLink="">Home</a>
-        <a mat-button routerLink="topics">Topics</a>
-        <a mat-button routerLink="messages">Message</a>
-        <a mat-button routerLink="notification">Notifications</a>
-        <!-- <a mat-button routerLink="/contact">Contact</a> -->
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

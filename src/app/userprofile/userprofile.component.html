@@ -1,65 +1,63 @@
-<div class="Info">
-  <div class="UserInfo">
-    <div class="User">
-      <!-- <mat-card-header> -->
-      <img class="ProfilePic" src="../../../img/male-icon-4.jpg" ref="Add image">
-      <a routerLink="viewprofile"><h5>Aman Prakash</h5></a>
-      <h6>India</h6>
-      <!-- </mat-card-header> -->
-    </div>
-      <div class="Leaderboard">
-        <h3>Leaderboard</h3>
-      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> Rank </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-        </ng-container>
-      
-        <!-- Level Column -->
-        <ng-container matColumnDef="level">
-          <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
-        </ng-container>
-          
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-    </div>
+<div class="UserInfo">
+  <div class="User">
+    <!-- <mat-card-header> -->
+    <img class="ProfilePic" src="../../../img/male-icon-4.jpg" ref="Add image">
+    <h6>Aman Prakash</h6>
+    <h6>India</h6>
+    <!-- </mat-card-header> -->
+  </div>
+  <div class="Leaderboard">
+    <h3>Leaderboard</h3>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> Rank </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Level Column -->
+      <ng-container matColumnDef="level">
+        <mat-header-cell *matHeaderCellDef> Level </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </div>
 </div>
 
-<div class="WritePost">
-  <textarea name="textarea"
-   rows="5" cols="59"
-   placeholder="Write your post here"></textarea>
-   <button mat-raised-button>Post</button>
+<div class="Posts">
+  <div class="WritePost">
+    <textarea name="textarea" rows="5" cols="59" placeholder="Write your post here"></textarea>
+    <button mat-raised-button>Post</button>
+  </div>
+
+  <h2>All Posts</h2>
+
+  <mat-card class="post-card">
+    <mat-card-header>
+      <div mat-card-avatar class="post-header-image"></div>
+      <mat-card-title routerLink="/profile">Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-
-<h2>All Posts</h2>
-
-<mat-card class="post-card">
-  <mat-card-header>
-    <div mat-card-avatar class="post-header-image"></div>
-    <mat-card-title routerLink="/profile">Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>

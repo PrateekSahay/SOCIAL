@@ -1,19 +1,18 @@
 <div>
-<form class="mysearch">
-  <input type="text" id="Search" placeholder="Search Topics..." [(ngModel)]='subject' [ngModelOptions]="{standalone: true}">
-  <button mat-stroked-button id="SearchButton" (click)="getSearchResult()">Search</button>
-</form>
+  <form class="mysearch">
+    <input type="text" id="Search" placeholder="Search Topics..." [(ngModel)]='subject' [ngModelOptions]="{standalone: true}">
+    <button mat-stroked-button id="SearchButton" (click)="getSearchResult()">Search</button>
+  </form>
 </div>
 
 <div class="Topics-container">
-  <h4>Topics</h4>
   <div class="Topics-flex_container">
-    <div *ngFor="let item of thatArray">
+    <div *ngFor="let item of searchResult">
       <mat-card class="Topic-card">
         <mat-card-content class="Topic-card__content">
-        <mat-card-title>
-          {{item.topic_name}}
-        </mat-card-title>
+          <mat-card-title>
+            {{item.topic_name}}
+          </mat-card-title>
         </mat-card-content>
         <mat-card-actions class="Topic-action_buttons">
           <button mat-stroked-button (click)="gotoGameplay()" routerLinkActive="active">Play</button>

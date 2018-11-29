@@ -1,4 +1,4 @@
-export class someClass {
+export class SearchClass {
     posts: string
     topic_id: number
     topic_image: string
