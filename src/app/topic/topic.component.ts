@@ -32,14 +32,14 @@ export class TopicComponent implements OnInit {
       }
     )
 
+    this.route.paramMap.subscribe(params => { this.name = params.get("id") })
+    console.log(this.name);
+
     this.topicsService.getPosts(this.name).subscribe(
       (data) => {
         this.posts = data;
         console.log("Posts", this.posts);
       })
-
-    this.route.paramMap.subscribe(params => { this.name = params.get("id") })
-    console.log(this.name);
 
   }
 
