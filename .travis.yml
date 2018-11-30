@@ -1,3 +1,4 @@
+sudo: required
 chrome: stable
 language: node_js
 
@@ -29,6 +30,9 @@ before_script:
   - npm install
 
 script:
+  - chmod +x ./deploy.sh
   - ng build  
   - ng test
 
+after_success:
+- /bin/bash ./deploy.sh
