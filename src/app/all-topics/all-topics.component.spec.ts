@@ -28,8 +28,9 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from '../app-routing.module';
 import {} from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AppComponent } from '../app.component';
 import { HomeComponent } from '../home/home.component';
-import { AllTopicsComponent } from '../all-topics/all-topics.component';
+import { AllTopicsComponent } from './all-topics.component';
 import { MessagesComponent } from '../messages/messages.component';
 import { NotificationComponent } from '../notification/notification.component';
 import { ErrorPageComponent } from '../error-page/error-page.component';
@@ -38,7 +39,7 @@ import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
 
-describe('AllTopicsComponent', () => {
+fdescribe('AllTopicsComponent', () => {
   let component: AllTopicsComponent;
   let fixture: ComponentFixture<AllTopicsComponent>;
 
@@ -54,7 +55,8 @@ describe('AllTopicsComponent', () => {
         UserprofileComponent,
         TopicComponent,
         PublicprofileComponent,
-        SearchComponent
+        SearchComponent,
+        AppComponent
       ],
       imports: [
         BrowserModule,
@@ -82,7 +84,8 @@ describe('AllTopicsComponent', () => {
         FlexLayoutModule,
         MatTabsModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+      providers: [AllTopicsComponent,
+        MatIconRegistry, {provide: APP_BASE_HREF, useValue: '/'}],
     })
       .compileComponents();
   }));

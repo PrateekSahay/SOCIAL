@@ -24,7 +24,7 @@ export class TopicComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-
+    console.log("Init in topic");
     this.route.paramMap.subscribe(params => { this.name = params.get("id") })
     console.log("---topic_details--"+this.name);
 

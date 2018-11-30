@@ -83,7 +83,8 @@ describe('NavbarComponent', () => {
         FlexLayoutModule,
         MatTabsModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
+      providers: [AllTopicsComponent,
+        MatIconRegistry,{provide: APP_BASE_HREF, useValue: '/'}]
     })
       .compileComponents();
   }));

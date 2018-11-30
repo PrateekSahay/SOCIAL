@@ -19,11 +19,15 @@ export class AllTopicsComponent implements OnInit {
      ) { }
 
   ngOnInit() {
+    console.log("Init");
     this.topicsService.getTopics().subscribe(
       (data) => {
+        console.log(data);
         this.topics = data;
-        console.log("Topics", this.topics);
-      }
+        console.log("Topics");
+      },
+      err => console.log(err),
+      () => console.log("Completed"),
     )
 }
 
