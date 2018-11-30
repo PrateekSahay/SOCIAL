@@ -16,10 +16,9 @@ export class DataCollectionService {
   {
    return this.http.get("http://172.23.238.164:8089/api/posts/"+topicname);
   }
-  postUser(user)
+  postFeed(feed)
   {
-    return this.http.post("http://localhost:5000/api/values/UserInfo",user);
+    console.log("------", feed)
+    return this.http.post('http://172.23.238.164:8089/api/posts', feed);
   }
-
-
 }

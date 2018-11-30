@@ -18,8 +18,8 @@
 <div class="posts">
 
   <div class="WritePost">
-    <textarea name="textarea" rows="5" cols="59" placeholder="Write your post here"></textarea>
-    <button mat-raised-button>Post</button>
+    <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post' ></textarea>
+    <button mat-raised-button (click)="createPosts()">Post</button>
   </div>
 
   <h2>All Posts</h2>
@@ -34,7 +34,7 @@
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
         <p>
-          {{postitem.posts}}
+          {{postItem.posts}}
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -43,7 +43,7 @@
           <mat-expansion-panel-header>
             Comments
           </mat-expansion-panel-header>
-          <mat-list *ngFor="let commentitem of postitem.comment_data">
+          <mat-list *ngFor="let commentitem of postItem.comment_data">
             <mat-list-item>{{commentitem.comment}}</mat-list-item>
             <mat-divider></mat-divider>
           </mat-list>

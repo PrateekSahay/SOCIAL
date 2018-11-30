@@ -11,7 +11,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule, MatIconRegistry } from '@angular/material';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -20,6 +21,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +37,7 @@ import { TopicComponent } from './topic/topic.component';
 import { PublicprofileComponent } from './publicprofile/publicprofile.component';
 import { SearchComponent } from './search/search.component';
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
-import { getAuthServiceConfigs } from "./socialloginConfig";
+// import { getAuthServiceConfigs } from "./socialloginConfig";
 
 @NgModule({
   declarations: [
@@ -74,15 +76,12 @@ import { getAuthServiceConfigs } from "./socialloginConfig";
     HttpClientModule,
     MatExpansionModule,
     MatPaginatorModule,
+    HttpClientTestingModule,
     FlexLayoutModule,
     MatTabsModule
   ],
   providers: [
     AllTopicsComponent,
-    // {
-    //   provide:AuthServiceConfig,
-    //   useFactory:getAuthServiceConfigs
-    // },
     MatIconRegistry
   ],
   bootstrap: [AppComponent]

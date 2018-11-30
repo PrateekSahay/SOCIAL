@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataCollectionService } from '../data-collection.service';
-import { forEach } from '@angular/router/src/utils/collection';
-import { element } from 'protractor';
-import { url } from 'inspector';
-
+import { createPost } from "./posts.model";
 
 @Component({
   selector: 'app-topic',
@@ -16,7 +13,10 @@ export class TopicComponent implements OnInit {
   topics: any;
   posts: any;
   name: any;
+  id: any;
   topicposts: any;
+  post: string = ""
+  postid: number = 1
 
   constructor(
     private topicsService: DataCollectionService,
@@ -24,16 +24,12 @@ export class TopicComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.topicsService.getTopics().subscribe(
-      (data) => {
-        this.topics = data;
-        console.log()
-        console.log("Topics", this.topics);
-      }
-    )
 
     this.route.paramMap.subscribe(params => { this.name = params.get("id") })
-    console.log(this.name);
+    console.log("---topic_details--"+this.name);
+
+    this.route.queryParams.subscribe(params => { this.id = +params["topicData"] })
+    console.log("---topic_details--"+this.id);
 
     this.topicsService.getPosts(this.name).subscribe(
       (data) => {
@@ -43,7 +39,17 @@ export class TopicComponent implements OnInit {
 
   }
 
-  gotoGameplay(){
+  gotoGameplay() {
     window.location.href = "http://172.23.238.164:4202/play";
+  }
+
+  createPosts() {
+    console.log("--post--", this.post)
+    var feed = new createPost()
+    feed.posts = this.post
+    feed.topicForeignKey = this.id
+    feed.userForeignKey = this.postid
+    this.topicsService.postFeed(feed)
+    console.log("--post--", feed)
   }
 }

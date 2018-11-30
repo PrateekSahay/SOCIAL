@@ -18,7 +18,7 @@
 
         <mat-card-actions class="Topic-action_buttons">
           <button mat-stroked-button (click)="gotoGameplay()" routerLinkActive="active">Play</button>
-          <button mat-stroked-button routerLink="/topics/{{topic.topic_name}}">View</button>
+          <button mat-stroked-button (click)="gotoTopic(topic)">View</button>
           <button mat-stroked-button routerLink="#">Follow</button>
         </mat-card-actions>
       </mat-card>

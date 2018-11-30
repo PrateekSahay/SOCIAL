@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCollectionService } from '../data-collection.service';
 import { ActivatedRoute, Data } from '@angular/router';
-import { SearchClass } from './search.model';
+import { topicClass } from '../all-topics/topic.model';
 
 @Component({
   selector: 'app-search',
@@ -37,16 +37,12 @@ export class SearchComponent implements OnInit {
           console.log(item.topic_name);
           if(this.subject == item.topic_name){
             console.log(item)
-            var topic = new SearchClass()
-            // scls.topic_name = item.topic_name
+            var topic = new topicClass()
             topic.posts = item.posts
             topic.topic_id = item.topic_id
             topic.topic_image = item.topic_image
             topic.topic_name = item.topic_name
             this.searchResult.push(topic)
-            // this.SearchResult.splice(this.start_index, this.number_of_elements_to_remove, item);
-            // console.log("SearchResult", this.SearchResult);
-            // this.display=item.topic_name;
           }
         }
         console.log("---length---"+this.searchResult.length)
