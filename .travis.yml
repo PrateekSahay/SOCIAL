@@ -23,6 +23,6 @@ before_script:
   - npm install
 
 script:
-  -ng build  
-  -ng test
+  - ng build  
+  - ng test
 
