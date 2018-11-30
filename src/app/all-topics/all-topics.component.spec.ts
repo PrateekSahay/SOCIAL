@@ -39,7 +39,7 @@ import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
 
-fdescribe('AllTopicsComponent', () => {
+describe('AllTopicsComponent', () => {
   let component: AllTopicsComponent;
   let fixture: ComponentFixture<AllTopicsComponent>;
 
