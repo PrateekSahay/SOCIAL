@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCollectionService } from '../data-collection.service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { topicClass } from './topic.model';
+
+import { DataCollectionService } from '../data-collection.service';
 
 @Component({
   selector: 'app-all-topics',
@@ -11,7 +12,7 @@ import { topicClass } from './topic.model';
 export class AllTopicsComponent implements OnInit {
 
   topics: any;
-    
+
   constructor(
     private topicsService: DataCollectionService,
     private route: ActivatedRoute,
@@ -21,7 +22,10 @@ export class AllTopicsComponent implements OnInit {
   ngOnInit() {
     console.log("Init");
     // console.log('this.topicsService.getTopics()', this.topicsService.getTopics());
-    this.topicsService.getTopics();
+    this.topicsService.getTopics().subscribe((data) => {
+      console.log('Data inside components');
+      console.log(data);
+    });
     // this.topicsService.getTopics().subscribe((data) => {
     //     this.topics = data;
     //     console.log("topics----------------------");
@@ -40,18 +44,18 @@ export class AllTopicsComponent implements OnInit {
   //   );
   // }
 
-gotoGameplay(){
-  window.location.href = "http://172.23.238.164:4202/play";
-}
+  gotoGameplay() {
+    window.location.href = "http://172.23.238.164:4202/play";
+  }
 
-gotoTopic(topicData) {
-  var topic = new topicClass()
-  topic.posts = topicData.posts
-  topic.topic_id = topicData.topic_id
-  topic.topic_image = topicData.topic_image
-  topic.topic_name = topicData.topic_name
-  console.log("--selected--", topic)
-  this.router.navigate(['/topics/', topicData.topic_name], { queryParams: {topicData: topicData.topic_id}})
-}
+  gotoTopic(topicData) {
+    var topic = new topicClass()
+    topic.posts = topicData.posts
+    topic.topic_id = topicData.topic_id
+    topic.topic_image = topicData.topic_image
+    topic.topic_name = topicData.topic_name
+    console.log("--selected--", topic)
+    this.router.navigate(['/topics/', topicData.topic_name], { queryParams: {topicData: topicData.topic_id}})
+  }
 
 }

@@ -5,19 +5,14 @@ import { HttpClient } from '@angular/common/http';
 export class DataCollectionService {
   topics: any
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.http.get('http://localhost:5126/api/topics').subscribe((data) => {
+      console.log(data);
+    });
+  }
 
   getTopics() {
-    try {
-      
-      console.log('inside getTopic()')
-      var s = this.http.get('http://localhost:5126/api/topics');
-      console.log(s);
-      return s.subscribe((d) => console.log(d), (e) => console.log(e));
-    } catch (e) {
-      console.log(e);
-    }
-    // return this.http.get("http://172.23.238.164:8089/api/topics")
+    return this.http.get('http://localhost:5126/api/topics');
   }
 
   getPosts(topicname : string) {

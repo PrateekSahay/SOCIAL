@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule, MatIconRegistry } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
+
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -77,7 +77,6 @@ import { DataCollectionService } from './data-collection.service';
     HttpClientModule,
     MatExpansionModule,
     MatPaginatorModule,
-    HttpClientTestingModule,
     FlexLayoutModule,
     MatTabsModule,
   ],
