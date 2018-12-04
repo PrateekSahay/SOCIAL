@@ -1,21 +1,215 @@
-.example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+.UserInfo {
+  display: flex;
+}
 
-  @media(max-width: 425px) {
-    
-    .ProfilePic{
-        width: 80px;
-        height: 80px;
-        padding-right: 16px;
-    }
+a {
+  color: inherit;
+}
 
-    textarea {
-      resize: none;
-    }
+mat-header-cell {
+  justify-content: center;
+  padding: 0%;
+}
+
+mat-cell {
+  justify-content: center;
+  padding: 0%;
+}
+
+.post-header-image {
+  background-image: url("../../../img/male-icon-4.jpg");
+}
+
+.Post {
+  justify-content: center;
+}
+
+mat-card {
+  max-width: 400px;
+}
+
+textarea {
+  border-radius: 8px;
+  border-color: #05668D;
+  background-color:white;
+}
+@media(max-width: 425px) {
+  .UserInfo {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
   }
+  .UserInfo img {
+    width: 80px;
+    height: 80px;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+}
+@media(max-width: 375px) {
+  .UserInfo {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
+  }
+  .UserInfo img {
+    width: 80px;
+    height: 80px;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+}
+@media(max-width: 320px) {
+  .UserInfo {
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-top: 4vh;
+  }
+  .UserInfo img {
+    width: 80px;
+    height: 80px;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  textarea {
+    width: 95%;
+  }
+}
+@media(min-width: 550px) {
+  .UserInfo {
+    flex-flow: row wrap;
+    margin-top: 4vh;
+    justify-content: space-around;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+  }
+  .User {
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 0%;
+  }
+  .Leaderboard {
+    width: 60%;
+  }
+  textarea {
+    width: 90%;
+  }
+}
+@media(min-width: 768px) {
+  .UserInfo {
+    flex-flow: row wrap;
+    margin-top: 4vh;
+    justify-content: space-around;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+  }
+  .User {
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 0%;
+  }
+  .Leaderboard {
+    width: 50%;
+  }
+  textarea {
+    width: 90%;
+  }
+}
+@media(min-width: 1024px) {
+  .UserInfo {
+    flex-flow: row wrap;
+    margin-top: 4vh;
+    justify-content: space-around;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+  }
+  .User {
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 2%;
+  }
+  .Leaderboard {
+    width: 130%;
+    margin-top: 15%;
+  }
+  textarea {
+    width: 100%;
+  }
+  .Posts {
+    float: right;
+    margin-right: 10%;
+  }
+}
+@media(min-width: 1440px) {
+  .UserInfo {
+    flex-flow: row wrap;
+    margin-top: 4vh;
+    justify-content: space-around;
+  }
+  .UserInfo img {
+    width: 160px;
+    height: 160px;
+  }
+  .User {
+    text-align: left;
+  }
+  h5, h6 {
+    margin: 2%;
+  }
+  .WritePost {
+    margin-top: 4vh;
+  }
+  h3 {
+    margin: 2%;
+  }
+  .Leaderboard {
+    width: 130%;
+    margin-top: 5%;
+  }
+  textarea {
+    width: 100%;
+  }
+  .Posts {
+    float: right;
+    margin-right: 15%;
+  }
+}

@@ -29,6 +29,11 @@ button {
     border: none;
 }
 
+mat-card {
+    max-width: 400px;
+    justify-self: center;
+  }
+
 @media(max-width: 320px) {
     .Topic-card {
         border-radius: 8px;

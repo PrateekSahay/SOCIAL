@@ -20,16 +20,25 @@ export class AllTopicsComponent implements OnInit {
 
   ngOnInit() {
     console.log("Init");
-    this.topicsService.getTopics().subscribe(
-      (data) => {
-        console.log(data);
-        this.topics = data;
-        console.log("Topics");
-      },
-      err => console.log(err),
-      () => console.log("Completed"),
-    )
-}
+    // console.log('this.topicsService.getTopics()', this.topicsService.getTopics());
+    this.topicsService.getTopics();
+    // this.topicsService.getTopics().subscribe((data) => {
+    //     this.topics = data;
+    //     console.log("topics----------------------");
+    //   }
+    // );
+  }
+
+  // function_temp(){
+  //   console.log("Init");
+  //  // console.log('this.topicsService.getTopics()', this.topicsService.getTopics());
+  //   //topicsService.getTopics();
+  //   this.topicsService.getTopics().subscribe((data) => {
+  //       // this.topics = data;s
+  //       console.log("topics----------------------")
+  //     }
+  //   );
+  // }
 
 gotoGameplay(){
   window.location.href = "http://172.23.238.164:4202/play";

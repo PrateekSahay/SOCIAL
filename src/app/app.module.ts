@@ -36,6 +36,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { TopicComponent } from './topic/topic.component';
 import { PublicprofileComponent } from './publicprofile/publicprofile.component';
 import { SearchComponent } from './search/search.component';
+import { DataCollectionService } from './data-collection.service';
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
 // import { getAuthServiceConfigs } from "./socialloginConfig";
 
@@ -78,11 +79,11 @@ import { SearchComponent } from './search/search.component';
     MatPaginatorModule,
     HttpClientTestingModule,
     FlexLayoutModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [
-    AllTopicsComponent,
-    MatIconRegistry
+    MatIconRegistry,
+    DataCollectionService
   ],
   bootstrap: [AppComponent]
 })

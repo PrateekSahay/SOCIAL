@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
+import { DataCollectionService } from '../data-collection.service';
 
 @Component({
   selector: 'app-notification',
@@ -8,33 +9,20 @@ import * as signalR from '@aspnet/signalr';
 })
 export class NotificationComponent implements OnInit {
 
-  // connection:any;
-  // notif:string;
-  // username = new Date().getTime();
-  // message: string;
-  constructor() { }
+  notification: any;
+  constructor(private notificationService: DataCollectionService) { }
 
   ngOnInit() {
-    // this.connection = new signalR.HubConnectionBuilder()
-    // .withUrl('https://localhost:5001/notificationhub')
-    // .build();
+    // this.notificationService.getNotifications(UserId).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //     this.notification = data;
+    //     console.log("notifications", this.notification);
+    //   }
+    // )
+  }
 
-    // this.connection.start()
-    // .then(() => console.log("connection established"))
-    // .catch((err) => console.log("error:: ", err));
-
-    // this.connection.on ("MessageReceived",(notification: string) =>
-    // {
-    //   this.notif = notification;
-    // });
-
-    
-
+  CreateNotification() {
 
   }
-  // send()
-  // {
-  //   this.connection.send("SendMessage", this.username, this.message);
-  // }
-
 }

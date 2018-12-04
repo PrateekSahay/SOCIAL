@@ -35,7 +35,7 @@ export class TopicComponent implements OnInit {
       (data) => {
         this.posts = data;
         console.log("Posts", this.posts);
-      })
+      });
 
   }
 
