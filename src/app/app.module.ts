@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule, MatIconRegistry } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
+
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -37,6 +37,7 @@ import { TopicComponent } from './topic/topic.component';
 import { PublicprofileComponent } from './publicprofile/publicprofile.component';
 import { SearchComponent } from './search/search.component';
 import { DataCollectionService } from './data-collection.service';
+import { PostComponent } from './post/post.component';
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
 // import { getAuthServiceConfigs } from "./socialloginConfig";
 
@@ -52,7 +53,8 @@ import { DataCollectionService } from './data-collection.service';
     UserprofileComponent,
     TopicComponent,
     PublicprofileComponent,
-    SearchComponent
+    SearchComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,6 @@ import { DataCollectionService } from './data-collection.service';
     HttpClientModule,
     MatExpansionModule,
     MatPaginatorModule,
-    HttpClientTestingModule,
     FlexLayoutModule,
     MatTabsModule,
   ],

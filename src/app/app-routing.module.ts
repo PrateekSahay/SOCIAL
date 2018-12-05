@@ -9,19 +9,21 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { TopicComponent } from './topic/topic.component';
 import { PublicprofileComponent } from './publicprofile/publicprofile.component';
 import { SearchComponent } from './search/search.component';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Route[] = [
   {path:'', redirectTo:'/', pathMatch:'full'},
   {path:'',component: HomeComponent},
-  {path:'topics',component: AllTopicsComponent},
-  {path:'messages',component: MessagesComponent},
-  {path:'notification',component:NotificationComponent },
-  {path:'viewprofile',component:UserprofileComponent},
-  {path:'topics/:id',component:TopicComponent},
-  {path:'profile',component:PublicprofileComponent},
+  {path:'topics', component: AllTopicsComponent},
+  {path:'messages', component: MessagesComponent},
+  {path:'notification', component:NotificationComponent },
+  {path:'viewprofile', component:UserprofileComponent},
+  {path:'topics/:id', component:TopicComponent},
+  {path:'profile', component:PublicprofileComponent},
   {path:'search', component: SearchComponent},
-  {path:'**',component: ErrorPageComponent}
+  {path:'post/:id', component: PostComponent},
+  {path:'**', component: ErrorPageComponent}
 ];
 
 @NgModule({

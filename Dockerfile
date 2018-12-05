@@ -1,22 +1,24 @@
-# Use an official Python runtime as a parent image
-FROM node
+# base image
+# FROM node:9.6.1
+FROM node:10.9.0
 
-# Set the working directory to /app
-RUN mkdir /app
-WORKDIR /app
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /app
-COPY package.json /app/ 
-COPY package-lock.json /app
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
 RUN npm install
+RUN npm install -g @angular/cli@1.7.1
 
-# Install any needed packages specified in requirements.txt
-#RUN npm install
-Run npm i @angular/cli
-COPY . /app
+# add app
+COPY . /usr/src/app
 
-# Make port 80 available to the world outside this container
 EXPOSE 4200
 
-#RUN ng serve
-CMD [ "npm", "start" ]
+# start app
+# CMD ng serve --host 0.0.0.0
+CMD ["npm", "start"]
