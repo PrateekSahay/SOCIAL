@@ -1,0 +1,16 @@
+{
+    "NotificationId": 1,
+    "Message": "NotificationReceived",
+    "TargetUrl": "Clients",
+    "Users": [
+        {
+            "UserId": 1
+        },
+        {
+            "UserId": 2
+        },
+        {
+            "UserId": 3
+        }
+    ]
+}
