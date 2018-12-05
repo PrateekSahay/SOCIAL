@@ -37,6 +37,7 @@ import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
+import { DataCollectionService } from '../data-collection.service';
 
 import { PostComponent } from './post.component';
 
@@ -56,6 +57,7 @@ describe('PostComponent', () => {
         UserprofileComponent,
         TopicComponent,
         PublicprofileComponent,
+        PostComponent,
         SearchComponent
       ],
       imports: [
@@ -85,8 +87,7 @@ describe('PostComponent', () => {
         FlexLayoutModule,
         MatTabsModule
       ],
-      providers: [AllTopicsComponent,
-        MatIconRegistry,{ provide: APP_BASE_HREF, useValue: '/' }]
+      providers: [DataCollectionService,MatIconRegistry,{ provide: APP_BASE_HREF, useValue: '/' }]
     })
     .compileComponents();
   }));

@@ -37,6 +37,8 @@ import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
+import { PostComponent } from '../post/post.component';
+
 
 describe('MessagesComponent', () => {
   let component: MessagesComponent;
@@ -53,7 +55,9 @@ describe('MessagesComponent', () => {
         UserprofileComponent,
         TopicComponent,
         PublicprofileComponent,
-        SearchComponent ],
+        SearchComponent,
+        PostComponent
+      ],
       imports: [
         BrowserModule,
         BrowserAnimationsModule,

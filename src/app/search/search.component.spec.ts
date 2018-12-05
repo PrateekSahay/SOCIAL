@@ -37,6 +37,9 @@ import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
+import { PostComponent } from '../post/post.component';
+import { DataCollectionService } from '../data-collection.service';
+
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -51,6 +54,7 @@ describe('SearchComponent', () => {
         MessagesComponent,
         NotificationComponent,
         ErrorPageComponent,
+        PostComponent,
         UserprofileComponent,
         TopicComponent,
         PublicprofileComponent,
@@ -83,7 +87,7 @@ describe('SearchComponent', () => {
         FlexLayoutModule,
         MatTabsModule
       ],
-      providers: [AllTopicsComponent,
+      providers: [DataCollectionService,
         MatIconRegistry,{provide: APP_BASE_HREF, useValue: '/'}]
     })
     .compileComponents();

@@ -37,6 +37,8 @@ import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
+import { PostComponent } from '../post/post.component';
+
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -54,6 +56,7 @@ describe('NavbarComponent', () => {
         UserprofileComponent,
         TopicComponent,
         PublicprofileComponent,
+        PostComponent,
         SearchComponent
       ],
       imports: [

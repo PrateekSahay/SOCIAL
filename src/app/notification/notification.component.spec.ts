@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { DataCollectionService } from '../data-collection.service';
 import { NotificationComponent } from './notification.component';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 
 describe('NotificationComponent', () => {
   let component: NotificationComponent;
@@ -8,7 +10,9 @@ describe('NotificationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotificationComponent ]
+      declarations: [ NotificationComponent ],
+      imports:[HttpClientModule],
+      providers: [DataCollectionService, HttpClient]
     })
     .compileComponents();
   }));

@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     labels:
-      SERVICE_4200_NAME: SocialUI
+      SERVICE_4200_NAME: Social
     networks: 
       - social-client-network
     # ports:

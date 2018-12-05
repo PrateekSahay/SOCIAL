@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { DataCollectionService } from './data-collection.service';
 
-fdescribe('DataCollectionService', () => {
+describe('DataCollectionService', () => {
   let service: DataCollectionService;
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientModule]
+    imports: [HttpClientModule],
+    providers: [DataCollectionService, HttpClient]
   }));
 
   it('should be created', () => {

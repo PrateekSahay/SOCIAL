@@ -36,6 +36,8 @@ import { ErrorPageComponent } from '../error-page/error-page.component';
 import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
+import { PostComponent } from '../post/post.component';
+
 import { SearchComponent } from '../search/search.component';
 describe('PublicprofileComponent', () => {
   let component: PublicprofileComponent;
@@ -51,6 +53,7 @@ describe('PublicprofileComponent', () => {
         NotificationComponent,
         ErrorPageComponent,
         UserprofileComponent,
+        PostComponent,
         TopicComponent,
         PublicprofileComponent,
         SearchComponent
