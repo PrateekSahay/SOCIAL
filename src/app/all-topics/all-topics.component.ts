@@ -36,7 +36,6 @@ export class AllTopicsComponent implements OnInit {
     var topic = new topicClass()
     topic.posts = topicData.posts
     topic.topic_id = topicData.topicId
-    topic.topic_image = topicData.topicImage
     topic.topic_name = topicData.topicName
     console.log("--selected--", topic)
     this.router.navigate(['/topics/', topicData.topicName], { queryParams: {topicData: topicData.topicId}})
