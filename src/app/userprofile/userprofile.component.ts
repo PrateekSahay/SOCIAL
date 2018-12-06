@@ -23,6 +23,7 @@ export class UserprofileComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   name: any
   email: any
+  userId: any
   constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
@@ -36,6 +37,8 @@ export class UserprofileComponent implements OnInit {
 
     this.name = fullName;
     this.email = email;
+    this.userId = userId;
   }
+
 
 }

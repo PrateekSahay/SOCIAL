@@ -38,7 +38,7 @@ import { TopicComponent } from '../topic/topic.component';
 import { PublicprofileComponent } from '../publicprofile/publicprofile.component';
 import { SearchComponent } from '../search/search.component';
 import { PostComponent } from '../post/post.component';
-
+import { CookieService } from 'ngx-cookie-service';
 
 describe('UserprofileComponent', () => {
   let component: UserprofileComponent;
@@ -86,8 +86,13 @@ describe('UserprofileComponent', () => {
         FlexLayoutModule,
         MatTabsModule
       ],
-      providers: [AllTopicsComponent,
-        MatIconRegistry,{provide: APP_BASE_HREF, useValue: '/'}]
+      providers: [
+        CookieService,
+        MatIconRegistry,
+        {
+          provide: APP_BASE_HREF, 
+          useValue: '/'
+        }]
     })
     .compileComponents();
   }));
