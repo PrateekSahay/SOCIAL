@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit {
         console.log("TopicSearch", this.topicSearch)
         for (let item of this.topicSearch) {
           console.log(item.topicName);
-          if(this.subject == item.topicName){
+          if(this.subject.toUpperCase() == item.topicName.toUpperCase()){
             console.log(item)
             var topic = new topicClass()
             topic.posts = item.posts
