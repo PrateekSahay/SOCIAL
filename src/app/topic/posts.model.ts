@@ -1,5 +1,5 @@
 export class createPost {
-    posts: string
-    topicForeignKey: number
-    userForeignKey: number
+    post: string
+    topicId: number
+    userId: string
 }

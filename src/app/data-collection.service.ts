@@ -12,19 +12,19 @@ export class DataCollectionService {
   }
 
   getPosts(topicname : string) {
-   return this.http.get("http://172.23.238.164:8089/api/posts/"+topicname);
+   return this.http.get("http://172.23.238.164:7000/socialengine/posts/"+topicname);
   }
 
   getPostsById(id : number) {
-    return this.http.get("http://172.23.238.164:5002/api/posts"+id);
+    return this.http.get("http://172.23.238.164:7000/socialengine/posts"+id);
   }
 
   postFeed(feed) {
     console.log("------", feed);
-    return this.http.post('http://172.23.238.164:8089/api/posts', feed);
+    return this.http.post('http://172.23.238.164:7000/socialengine/posts', feed);
   }
 
   getNotifications(id : string) {
-    return this.http.get("http://172.23.238.164:5000/api/notifications"+id);
+    return this.http.get("http://172.23.238.164:7000/socialengine/notifications"+id);
   }
 }

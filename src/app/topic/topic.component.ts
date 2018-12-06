@@ -16,7 +16,7 @@ export class TopicComponent implements OnInit {
   id: any;
   topicposts: any;
   post: string = ""
-  postid: number = 1
+  postid: string = "1"
 
   constructor(
     private topicsService: DataCollectionService,
@@ -46,9 +46,9 @@ export class TopicComponent implements OnInit {
   createPosts() {
     console.log("--post--", this.post)
     var feed = new createPost()
-    feed.posts = this.post
-    feed.topicForeignKey = this.id
-    feed.userForeignKey = this.postid
+    feed.post = this.post
+    feed.topicId = this.id
+    feed.userId = this.postid
     this.topicsService.postFeed(feed)
     console.log("--post--", feed)
   }
