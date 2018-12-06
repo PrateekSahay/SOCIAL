@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  level: number;
+  topic: string;
+  score: number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', level: 3},
-  {position: 2, name: 'Helium', level: 2},
-  {position: 3, name: 'Lithium', level: 7},
-  {position: 4, name: 'Beryllium', level: 9},
-  {position: 5, name: 'Boron', level: 6},
+  { topic: 'TP1', score: 120 },
+  { topic: 'TP2', score: 70 },
+  { topic: 'TP3', score: 90 },
 ];
 
 @Component({
@@ -21,12 +19,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class UserprofileComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'level'];
+  displayedColumns: string[] = ['topic', 'score'];
   dataSource = ELEMENT_DATA;
-
-  constructor() { }
+  name: any
+  email: any
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
+    let token = this.cookieService.get("UserLoginAPItoken");
+    let jwtData = token.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    let userId = decodedJwtData.UserID;
+    let fullName = decodedJwtData.Name;
+    let email = decodedJwtData.Email;
+
+    this.name = fullName;
+    this.email = email;
   }
 
 }

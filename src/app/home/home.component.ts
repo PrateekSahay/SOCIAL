@@ -19,5 +19,4 @@ export class HomeComponent implements OnInit {
     this.connection.on("GetPendingGames", (res) => {this.games = res
     console.log("pending games", this.games);});
   }
-
 }

@@ -38,6 +38,7 @@ import { PublicprofileComponent } from './publicprofile/publicprofile.component'
 import { SearchComponent } from './search/search.component';
 import { DataCollectionService } from './data-collection.service';
 import { PostComponent } from './post/post.component';
+import { CookieService } from 'ngx-cookie-service';
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular-6-social-login";
 // import { getAuthServiceConfigs } from "./socialloginConfig";
 
@@ -84,7 +85,8 @@ import { PostComponent } from './post/post.component';
   ],
   providers: [
     MatIconRegistry,
-    DataCollectionService
+    DataCollectionService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
