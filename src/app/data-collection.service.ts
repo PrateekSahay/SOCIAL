@@ -20,7 +20,7 @@ export class DataCollectionService {
   }
 
   postFeed(feed) {
-    console.log("------", feed);
+    console.log("---xxx---", feed);
     return this.http.post('http://172.23.238.164:7000/socialengine/post', feed);
   }
 
