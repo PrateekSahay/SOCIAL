@@ -12,7 +12,7 @@ div {
 }
 
 .mat-sidenav-container {
-  background-color: #00A896;
+  background-color: #E3EBFF;
   min-height: 90vh !important;
 }
 
@@ -37,12 +37,12 @@ button {
 }
 
 .mat-sidenav-content {
-  background-color: #00A896;
-  color: #F0F3BD;
+  background-color: #E3EBFF;
+  color: #2B223B;
   height: 1000vh;
 }
 
 .mat-drawer-container {
-  color:#F0F3BD;
+  color:#2B223B;
 }
 

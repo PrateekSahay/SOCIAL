@@ -8,7 +8,7 @@ export class DataCollectionService {
   constructor(private http: HttpClient) {}
 
   getTopics() {
-    return this.http.get('http://172.23.238.164:8089/api/topics');
+    return this.http.get('http://172.23.238.164:7000/socialengine/topics');
   }
 
   getPosts(topicname : string) {
