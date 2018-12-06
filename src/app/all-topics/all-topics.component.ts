@@ -29,7 +29,7 @@ export class AllTopicsComponent implements OnInit {
   }
 
   gotoGameplay() {
-    window.location.href = "http://172.23.238.164:4202/play";
+    window.location.href = "http://172.23.238.164:7000/gameplay/play";
   }
 
   gotoTopic(topicData) {
