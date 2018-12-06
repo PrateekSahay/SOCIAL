@@ -34,8 +34,8 @@ export class SearchComponent implements OnInit {
         this.topicSearch = data;
         console.log("TopicSearch", this.topicSearch)
         for (let item of this.topicSearch) {
-          console.log(item.topic_name);
-          if(this.subject == item.topic_name){
+          console.log(item.topicName);
+          if(this.subject == item.topicName){
             console.log(item)
             var topic = new topicClass()
             topic.posts = item.posts
