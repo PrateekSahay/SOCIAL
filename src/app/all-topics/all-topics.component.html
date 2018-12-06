@@ -16,7 +16,7 @@
         <!-- Buttons used to view topic page or play game directly or follow -->
 
         <mat-card-actions class="Topic-action_buttons">
-          <button mat-stroked-button (click)="gotoGameplay()" routerLinkActive="active">Play</button>
+          <button mat-stroked-button (click)="gotoGameplay(topic.topicName)" routerLinkActive="active">Play</button>
           <button mat-stroked-button (click)="gotoTopic(topic)">View</button>
           <button mat-stroked-button routerLink="#">Follow</button>
         </mat-card-actions>

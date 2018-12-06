@@ -28,8 +28,8 @@ export class AllTopicsComponent implements OnInit {
     });
   }
 
-  gotoGameplay() {
-    window.location.href = "http://172.23.238.164:7000/gameplay/play/"+this.topics.topicName;
+  gotoGameplay(topicName) {
+    window.location.href = "http://172.23.238.164:7000/gameplay/play/"+topicName;
   }
 
   gotoTopic(topicData) {
