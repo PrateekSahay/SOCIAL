@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
   gotoJoiningPage(GameId: string) {
     console.log(GameId);
     for (let i=0; i<this.games.length; i++) {
-      if (this.games[i].GameId == GameId) {
-        // console.log(game);
+      if (this.games[i].gameId == GameId) {
+        console.log(this.games[i].gameId);
         if (this.games[i].NumberOfPlayersRequired == 2) {
           window.location.href = "http://172.23.238.164:7000/gameplay/play/" + this.games[i].Topic + "/two-players";
         }
