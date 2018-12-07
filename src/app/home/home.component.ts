@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
       return el.gameId === GameId;
     });
     console.log(game);
-    if(game.numberOfPlayersRequired == 2) {
-      window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.topic+"/two-players";
+    if(game.NumberOfPlayersRequired == 2) {
+      window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.Topic+"/two-players";
     }
     else if(game.NumberOfPlayersRequired == 3) {
       window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.Topic+"/three-players";
