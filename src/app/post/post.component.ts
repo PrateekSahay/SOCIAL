@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataCollectionService } from '../data-collection.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from "@angular/router";
+import { createComment } from "./comment.model"
 
 @Component({
   selector: 'app-post',
@@ -44,20 +45,20 @@ export class PostComponent implements OnInit {
     this.userId = userId;
     this.userName = userName;
 
-    // const comment: HTMLInputElement = document.querySelector('#comment');
+    const comment: HTMLInputElement = document.querySelector('#comment');
 
-    // comment.addEventListener('keyup',(enter: KeyboardEvent) => {
-    //   if(enter.keyCode === 13) {
-    //     send();
-    //   }
-    // });
+    comment.addEventListener('keyup',(enter: KeyboardEvent) => {
+      if(enter.keyCode === 13) {
+        this.createComment();
+      }
+    });
 
     
   }
 
   createComment() {
     console.log("--comment--", this.comment);
-    var comments = new this.createComment()
+    var comments = new createComment()
     comments.comment = this.comment
     comments.postId = this.postId
     comments.userId = this.userId
