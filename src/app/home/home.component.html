@@ -4,13 +4,13 @@
     <mat-card class="Topic-card">
       <mat-card-content class="Topic-card__content">
         <mat-card-title>
-          {{game.Topic}}
+          {{game.topic}}
         </mat-card-title>
-        <span>{{game.NumberOfPlayersRequired}} Player Game</span>
+        <span>{{game.numberOfPlayersRequired}} Player Game</span>
       </mat-card-content>
       <mat-card-actions class="Topic-action_buttons">
-        <button mat-stroked-button (click)="gotoJoiningPage(game.GameId)">Join</button>
-        <button mat-button>Joined: {{game.NumberOfPlayersJoined}}</button>
+        <button mat-stroked-button (click)="gotoJoiningPage(game.gameId)">Join</button>
+        <button mat-button>Joined: {{game.numberOfPlayersJoined}}</button>
       </mat-card-actions>
     </mat-card>
   </div>
