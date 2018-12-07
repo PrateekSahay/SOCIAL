@@ -61,7 +61,7 @@ export class TopicComponent implements OnInit {
     feed.topicId = this.id
     feed.userId = this.userId
     feed.userName = this.userName
-    this.topicsService.postFeed(feed)
+    this.topicsService.postFeed(feed).subscribe((data) => console.log(data));
     console.log("--post--", feed)
   }
 }
