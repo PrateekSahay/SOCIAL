@@ -32,7 +32,7 @@ button {
 @media(max-width: 320px) {
     .Topic-card {
         border-radius: 8px;
-        width: 15rem;
+        width: 10rem;
         padding: 1rem;
         margin-top: 30px;
     }
@@ -80,22 +80,22 @@ button {
 @media(min-width: 768px) {
     .Topic-card {
         border-radius: 8px;
-        width: 15rem;
+        width: 10rem;
         padding: 1rem;
         margin-top: 30px;
     }
     .Topic-card__content {
-        height: 10vh;
+        height: 5vh;
     }
 }
 
 @media(min-width: 1024px) {
     .Topic-card__content {
-        height: 10vh;
+        height: 5vh;
     }
     .Topic-card {
         border-radius: 8px;
-        width: 15rem;
+        width: 10rem;
         padding: 1rem;
         margin-top: 30px;
     }
