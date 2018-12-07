@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { DataCollectionService } from '../data-collection.service';
 
 export interface PeriodicElement {
   topic: string;
@@ -24,7 +25,12 @@ export class UserprofileComponent implements OnInit {
   name: any
   email: any
   userId: any
-  constructor(private cookieService: CookieService) { }
+  posts: any
+
+  constructor(
+    private cookieService: CookieService,
+    private postService: DataCollectionService
+    ) { }
 
   ngOnInit() {
     let token = this.cookieService.get("UserLoginAPItoken");
@@ -38,6 +44,13 @@ export class UserprofileComponent implements OnInit {
     this.name = fullName;
     this.email = email;
     this.userId = userId;
+
+    this.postService.getPersonalizedPosts(this.userId).subscribe(
+      (data) => {
+        this.posts = data;
+        console.log("--personalized posts--", this.posts);
+      }
+    )
   }
 
 

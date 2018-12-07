@@ -23,6 +23,10 @@ export class DataCollectionService {
     return this.http.get("http://172.23.238..164:7000/socialengine/posts/"+id)
   }
 
+  getUsers() {
+    return this.http.get("http://172.23.238.164:7000/socialengine/")
+  }
+
   postFeed(feed) {
     console.log("---xxx---", feed); 
     return this.http.post("http://172.23.238.164:7000/socialengine/post", feed);

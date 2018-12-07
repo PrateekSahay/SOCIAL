@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
 import { DataCollectionService } from '../data-collection.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-notification',
@@ -10,19 +11,44 @@ import { DataCollectionService } from '../data-collection.service';
 export class NotificationComponent implements OnInit {
 
   notification: any;
-  constructor(private notificationService: DataCollectionService) { }
+  userId: any;
+  connection:any;
+
+  constructor(
+    private notificationService: DataCollectionService,
+    private cookieService: CookieService
+    ) { }
 
   ngOnInit() {
-    // this.notificationService.getNotifications(UserId).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     this.notification = data;
-    //     console.log("notifications", this.notification);
-    //   }
-    // )
-  }
 
-  CreateNotification() {
+    let token = this.cookieService.get("UserLoginAPItoken");
+    let jwtData = token.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    let userId = decodedJwtData.UserID;
 
+    this.userId = userId;
+    
+    this.connection = new signalR.HubConnectionBuilder()
+     .withUrl('http://172.23.238.164:7000/notifications')
+     .build();
+
+     this.connection.start()
+     .then(() => {
+       console.log('connection established');
+     })
+     .catch((err) => console.log('Error::: ', err));
+    this.connection.on('Notifications',(notification:string)=>
+    {this.notification = notification;}
+    );
+
+
+    this.notificationService.getNotifications(this.userId).subscribe(
+      (data) => {
+        console.log(data);
+        this.notification = data;
+        console.log("notifications", this.notification);
+      }
+    )
   }
 }
