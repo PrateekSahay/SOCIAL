@@ -24,18 +24,19 @@ export class HomeComponent implements OnInit {
 
   gotoJoiningPage(GameId: string) {
     console.log(GameId);
-    for (let game of this.games) {
-      if (game.GameId == GameId) {
-        console.log(game);
-        if (game.NumberOfPlayersRequired == 2) {
+    for (let i=0; i<this.games.length; i++) {
+      if (this.games[i].GameId == GameId) {
+        // console.log(game);
+        if (this.games[i].NumberOfPlayersRequired == 2) {
           window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/two-players";
         }
-        else if (game.NumberOfPlayersRequired == 3) {
+        else if (this.games[i].NumberOfPlayersRequired == 3) {
           window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/three-players";
         }
         else {
           window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/four-players";
         }
+        break;
       }
     }
   }
