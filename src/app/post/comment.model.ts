@@ -1,5 +1,6 @@
 export class createComment {
     comment: string
     postId: number
-    userId: number
+    userId: string
+    userName: string
 }

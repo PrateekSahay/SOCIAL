@@ -15,6 +15,7 @@ export class PostComponent implements OnInit {
   name: any
   comment: string = ""
   userId: any
+  userName: any
 
   constructor(
     private postService: DataCollectionService,
@@ -38,8 +39,10 @@ export class PostComponent implements OnInit {
     let decodedJwtJsonData = window.atob(jwtData);
     let decodedJwtData = JSON.parse(decodedJwtJsonData);
     let userId = decodedJwtData.UserID;
+    let userName = decodedJwtData.Name;
 
     this.userId = userId;
+    this.userName = userName;
 
     const comment: HTMLInputElement = document.querySelector('#comment');
 
@@ -56,6 +59,7 @@ export class PostComponent implements OnInit {
     comments.comment = this.comment
     comments.postId = this.postId
     comments.userId = this.userId
+    comments.userName = this.userName
     this.postService.postComment(comments)
     console.log("--comment created--", comments)
   }

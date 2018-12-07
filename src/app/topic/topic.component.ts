@@ -18,6 +18,7 @@ export class TopicComponent implements OnInit {
   topicposts: any;
   post: string = ""
   userId: any;
+  userName: any;
 
   constructor(
     private topicsService: DataCollectionService,
@@ -43,8 +44,10 @@ export class TopicComponent implements OnInit {
       let decodedJwtJsonData = window.atob(jwtData);
       let decodedJwtData = JSON.parse(decodedJwtJsonData);
       let userId = decodedJwtData.UserID;
+      let userName = decodedJwtData.Name;
 
       this.userId = userId;
+      this.userName = userName;
   }
 
   gotoGameplay() {
@@ -57,6 +60,7 @@ export class TopicComponent implements OnInit {
     feed.post = this.post
     feed.topicId = this.id
     feed.userId = this.userId
+    feed.userName = this.userName
     this.topicsService.postFeed(feed)
     console.log("--post--", feed)
   }
