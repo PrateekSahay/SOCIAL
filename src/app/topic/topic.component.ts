@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { DataCollectionService } from '../data-collection.service';
 import { Post } from "./posts.model";
 import { CookieService } from "ngx-cookie-service";
+import { Follow } from "./follow.model";
 
 @Component({
   selector: 'app-topic',
@@ -19,6 +20,7 @@ export class TopicComponent implements OnInit {
   post: string = ""
   userId: any;
   userName: any;
+  follow: boolean
 
   constructor(
     private topicsService: DataCollectionService,
@@ -48,6 +50,15 @@ export class TopicComponent implements OnInit {
 
       this.userId = userId;
       this.userName = userName;
+  }
+
+  toggle(){
+    var followingTopics = new Follow()
+    followingTopics.topicId = this.id
+    followingTopics.userId = this.userId
+    followingTopics.follow = this.follow;
+    // this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
+    this.follow = !this.follow;
   }
 
   gotoGameplay() {

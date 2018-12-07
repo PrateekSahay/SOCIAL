@@ -1,16 +1,16 @@
 <div class="Waiting games">
   <h4>Join Games</h4>
-  <div class="Topics-flex_container">
+  <div class="Topics-flex_container" *ngFor="let game of games">
     <mat-card class="Topic-card">
       <mat-card-content class="Topic-card__content">
         <mat-card-title>
-          Football
+          {{game.Topic}}
         </mat-card-title>
-        <span>2 Player Game</span>
+        <span>{{game.NumberOfPlayersRequired}} Player Game</span>
       </mat-card-content>
       <mat-card-actions class="Topic-action_buttons">
-        <button mat-stroked-button routerLink="#">Join</button>
-        <button mat-button>Joined: </button>
+        <button mat-stroked-button (click)="gotoJoiningPage({{game.GameId}})">Join</button>
+        <button mat-button>Joined: {{game.NumberOfPlayersJoined}}</button>
       </mat-card-actions>
     </mat-card>
   </div>

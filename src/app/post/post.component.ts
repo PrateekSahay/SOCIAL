@@ -60,7 +60,7 @@ export class PostComponent implements OnInit {
     comments.postId = this.postId
     comments.userId = this.userId
     comments.userName = this.userName
-    this.postService.postComment(comments)
+    this.postService.postComment(comments).subscribe((data) => console.log(data));
     console.log("--comment created--", comments)
   }
 
