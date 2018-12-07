@@ -20,7 +20,7 @@ const routes: Route[] = [
   {path:'notification', component:NotificationComponent },
   {path:'viewprofile', component:UserprofileComponent},
   {path:'topics/:id', component:TopicComponent},
-  {path:'/:id', component:PublicprofileComponent},
+  {path:'user/:id', component:PublicprofileComponent},
   {path:'search', component: SearchComponent},
   {path:'topics/:name/post/:id', component: PostComponent},
   {path:'**', component: ErrorPageComponent}
