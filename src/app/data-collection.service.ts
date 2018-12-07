@@ -28,7 +28,7 @@ export class DataCollectionService {
   // Calling in Home Component
 
   getPersonalizedPosts(id: string) {
-    return this.http.get("http://172.23.238..164:7000/socialengine/posts/user/"+id)
+    return this.http.get("http://172.23.238.164:7000/socialengine/posts/user/"+id)
   }
 
   // Calling in Public Profile Component
