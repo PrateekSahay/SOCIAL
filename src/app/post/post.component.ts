@@ -63,6 +63,4 @@ export class PostComponent implements OnInit {
     this.postService.postComment(comments).subscribe((data) => console.log(data));
     console.log("--comment created--", comments)
   }
-
-  
 }

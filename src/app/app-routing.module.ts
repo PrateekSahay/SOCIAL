@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule, ActivatedRouteSnapshot } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AllTopicsComponent } from './all-topics/all-topics.component';
 import { MessagesComponent } from './messages/messages.component';

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
+import { DataCollectionService } from '../data-collection.service'
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +12,36 @@ export class HomeComponent implements OnInit {
 
   connection: any
   games: any
+  posts: any
 
-  constructor() { }
+  constructor(
+    private postService: DataCollectionService,
+    private cookieService: CookieService
+    ) { }
 
   ngOnInit() {
-    this.connection = new signalR.HubConnectionBuilder().withUrl('http://172.23.238.164:7000/gameplayhub').build();
-    this.connection.start().then(() => this.connection.send("SendPendingGames")).catch((err) => console.log('Error::: ', err));
+    this.connection = new signalR.HubConnectionBuilder()
+    .withUrl('http://172.23.238.164:7000/gameplayhub')
+    .build();
+    this.connection.start().then(() => this.connection.send("SendPendingGames"))
+    .catch((err) => console.log('Error::: ', err));
     this.connection.on("GetPendingGames", (res) => {
     this.games = res
       console.log("pending games", this.games);
     });
+
+    let token = this.cookieService.get("UserLoginAPItoken");
+    let jwtData = token.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    let userId = decodedJwtData.UserID;
+
+    this.postService.getPersonalizedPosts(userId).subscribe(
+      (data) => {
+        this.posts = data;
+        console.log("--personalizedPosts--", this.posts);
+      }
+    )
   }
 
   gotoJoiningPage(GameId: string) {

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataCollectionService {
   topics: any
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Calling in All-topics, search component
 
@@ -15,19 +15,19 @@ export class DataCollectionService {
 
   // Calling in topics component
 
-  getPosts(topicname : string) {
-   return this.http.get("http://172.23.238.164:7000/socialengine/posts/"+topicname);
+  getPosts(topicname: string) {
+    return this.http.get("http://172.23.238.164:7000/socialengine/posts/"+topicname);
   }
 
   // Calling in Post Component
 
-  getPostsById(id : number) {
+  getPostsById(id: number) {
     return this.http.get("http://172.23.238.164:7000/socialengine/post/"+id);
   }
 
   // Calling in Home Component
 
-  getPersonalizedPosts(id : string) {
+  getPersonalizedPosts(id: string) {
     return this.http.get("http://172.23.238..164:7000/socialengine/posts/user/"+id)
   }
 
@@ -40,7 +40,7 @@ export class DataCollectionService {
   // Calling in topics component
 
   postFeed(feed) {
-    console.log("---xxx---", feed); 
+    console.log("---xxx---", feed);
     return this.http.post("http://172.23.238.164:7000/socialengine/post", feed);
   }
 
@@ -58,7 +58,7 @@ export class DataCollectionService {
 
   // Calling in Notifications Component
 
-  getNotifications(id : string) {
+  getNotifications(id: string) {
     return this.http.get("http://172.23.238.164:7000/notifications/"+id);
   }
 }
