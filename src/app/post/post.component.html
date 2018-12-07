@@ -1,13 +1,14 @@
 <mat-card class="post-card">
   <mat-card-header>
     <div mat-card-avatar class="post-header-image"></div>
-    <mat-card-title routerLink="/profile">Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <mat-card-title routerLink="/profile">{{post.userName}}</mat-card-title>
+    <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  -->
   <mat-card-content>
     <p>
-      {{post.posts}}
+      {{post.post}}
     </p>
   </mat-card-content>
   <mat-card-actions>
@@ -16,13 +17,17 @@
       <mat-expansion-panel-header>
         Comments
       </mat-expansion-panel-header>
-      <mat-list *ngFor="let commentitem of postItem.comment_data">
-        <mat-list-item>{{commentitem.comment}}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
+      <mat-card class="comment-card" *ngFor="let comment of post.comments">
+        <mat-card-header>
+          <mat-card-title routerLink="/profile">{{comment.userName}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{comment.comment}}
+        </mat-card-content>
+      </mat-card>
       <div class="WriteComment">
         <textarea name="textarea" type="text" rows="1" cols="59" placeholder="Enter Comment" [(ngModel)]='comment' id="comment"></textarea>
-        <button mat-raised-button (click)="createComment()">Post</button>
+        <!-- <button mat-raised-button (click)="createComment()">Post</button> -->
       </div>
     </mat-expansion-panel>
   </mat-card-actions>

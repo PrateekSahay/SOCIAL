@@ -57,7 +57,7 @@ export class TopicComponent implements OnInit {
     followingTopics.topicId = this.id
     followingTopics.userId = this.userId
     followingTopics.follow = this.follow;
-    // this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
+    this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
     this.follow = !this.follow;
   }
 
