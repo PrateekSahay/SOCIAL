@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   gotoJoiningPage(GameId : string) {
     console.log(GameId);
-    var game = this.games.Where(g=> g.gameId, GameId).FirstOrDefault();
+    var game = this.games.Where(g=> g.gameId === GameId).FirstOrDefault();
     console.log(this.games);
     if(game.numberOfPlayersRequired == 2) {
       window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.topic+"/two-players";
