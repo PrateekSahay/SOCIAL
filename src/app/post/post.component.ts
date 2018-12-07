@@ -21,16 +21,7 @@ export class PostComponent implements OnInit {
     private postService: DataCollectionService,
     private cookieService: CookieService,
     private route: ActivatedRoute
-  ) 
-  {
-    const comment: HTMLInputElement = document.querySelector('#comment');
-
-    comment.addEventListener('keyup',(enter: KeyboardEvent) => {
-      if(enter.keyCode === 13) {
-        this.createComment();
-      }
-    });
-   }
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => { this.postId = params.get("id") })
@@ -52,6 +43,16 @@ export class PostComponent implements OnInit {
 
     this.userId = userId;
     this.userName = userName;
+
+    // const comment: HTMLInputElement = document.querySelector('#comment');
+
+    // comment.addEventListener('keyup',(enter: KeyboardEvent) => {
+    //   if(enter.keyCode === 13) {
+    //     send();
+    //   }
+    // });
+
+    
   }
 
   createComment() {

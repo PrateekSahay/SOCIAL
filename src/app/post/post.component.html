@@ -5,7 +5,6 @@
     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
   </mat-card-header>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-  -->
   <mat-card-content>
     <p>
       {{post.post}}
@@ -26,8 +25,8 @@
         </mat-card-content>
       </mat-card>
       <div class="WriteComment">
-        <textarea name="textarea" type="text" rows="1" cols="59" placeholder="Enter Comment" [(ngModel)]='comment' id="comment"></textarea>
-        <!-- <button mat-raised-button (click)="createComment()">Post</button> -->
+        <textarea name="textarea" type="text" rows="1" cols="59" placeholder="Enter Comment" [(ngModel)]='comment' id="comment" ></textarea>
+        <button mat-raised-button (click)="createComment()">Comment</button>
       </div>
     </mat-expansion-panel>
   </mat-card-actions>
