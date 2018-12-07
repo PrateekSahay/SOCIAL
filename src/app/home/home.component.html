@@ -9,7 +9,7 @@
         <span>{{game.NumberOfPlayersRequired}} Player Game</span>
       </mat-card-content>
       <mat-card-actions class="Topic-action_buttons">
-        <button mat-stroked-button (click)="gotoJoiningPage({{game.GameId}})">Join</button>
+        <button mat-stroked-button (click)="gotoJoiningPage(game.GameId)">Join</button>
         <button mat-button>Joined: {{game.NumberOfPlayersJoined}}</button>
       </mat-card-actions>
     </mat-card>
