@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCollectionService } from '../data-collection.service'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-publicprofile',
@@ -10,10 +11,17 @@ export class PublicprofileComponent implements OnInit {
 
   users: any
   posts: any
+  name: any
 
-  constructor(private postService: DataCollectionService) { }
+  constructor(
+    private postService: DataCollectionService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {this.name = params.get("id")})
+    console.log("--username--", this.name);
+
     this.postService.getUsers().subscribe(
       (data) => {
         this.users = data;
