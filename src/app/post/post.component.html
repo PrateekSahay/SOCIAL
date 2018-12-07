@@ -21,8 +21,8 @@
         <mat-divider></mat-divider>
       </mat-list>
       <div class="WriteComment">
-        <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
-        <button mat-raised-button (click)="createPosts()">Post</button>
+        <textarea name="textarea" type="text" rows="1" cols="59" placeholder="Enter Comment" [(ngModel)]='comment' id="comment"></textarea>
+        <button mat-raised-button (click)="createComment()">Post</button>
       </div>
     </mat-expansion-panel>
   </mat-card-actions>

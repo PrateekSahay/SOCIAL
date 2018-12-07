@@ -40,6 +40,14 @@ export class PostComponent implements OnInit {
     let userId = decodedJwtData.UserID;
 
     this.userId = userId;
+
+    const comment: HTMLInputElement = document.querySelector('#comment');
+
+    comment.addEventListener('keyup',(enter: KeyboardEvent) => {
+      if(enter.keyCode === 13) {
+        this.createComment();
+      }
+    });
   }
 
   createComment() {
@@ -51,4 +59,6 @@ export class PostComponent implements OnInit {
     this.postService.postComment(comments)
     console.log("--comment created--", comments)
   }
+
+  
 }
