@@ -16,15 +16,23 @@ export class DataCollectionService {
   }
 
   getPostsById(id : number) {
-    return this.http.get("http://172.23.238.164:7000/socialengine/posts"+id);
+    return this.http.get("http://172.23.238.164:7000/socialengine/post/"+id);
+  }
+
+  getPersonalizedPosts(id : string) {
+    return this.http.get("http://172.23.238..164:7000/socialengine/posts/"+id)
   }
 
   postFeed(feed) {
-    console.log("---xxx---", feed);
+    console.log("---xxx---", feed); 
     return this.http.post("http://172.23.238.164:7000/socialengine/post", feed);
   }
 
+  postComment(comment) {
+    return this.http.post("http://172.23.238.164:7000/socialengine/comment", comment);
+  }
+
   getNotifications(id : string) {
-    return this.http.get("http://172.23.238.164:7000/socialengine/notifications"+id);
+    return this.http.get("http://172.23.238.164:7000/notifications/"+id);
   }
 }

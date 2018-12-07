@@ -8,8 +8,8 @@ services:
       SERVICE_4200_NAME: Social
     networks: 
       - social-client-network
-    # ports:
-    #   - "4200"
+    ports:
+      - "4207:4200"
     volumes:
       - ".:/Social/usr/src/app"
       - /Social/usr/src/app/node_modules

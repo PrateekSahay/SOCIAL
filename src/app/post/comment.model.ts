@@ -1,5 +1,5 @@
 export class createComment {
     comment: string
-    PostForeignKey: number
-    UsercomForeignKey: number
+    postId: number
+    userId: number
 }
