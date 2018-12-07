@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   connection: any
   games: any
   posts: any
+  userId: any
 
   constructor(
     private postService: DataCollectionService,
@@ -36,7 +37,9 @@ export class HomeComponent implements OnInit {
     let decodedJwtData = JSON.parse(decodedJwtJsonData);
     let userId = decodedJwtData.UserID;
 
-    this.postService.getPersonalizedPosts(userId).subscribe(
+    this.userId = userId;
+
+    this.postService.getPersonalizedPosts(this.userId).subscribe(
       (data) => {
         this.posts = data;
         console.log("--personalizedPosts--", this.posts);
