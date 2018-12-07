@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit {
   }
 
   gotoJoiningPage(GameId : string) {
-    var game = this.games.Where(g=> g.GameId==GameId).FirstOrDefault();
-    if(game.NumberOfPlayersRequired == 2) {
-      window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.Topic+"/two-players";
+    var game = this.games.Where(g=> g.gameId==GameId).FirstOrDefault();
+    if(game.numberOfPlayersRequired == 2) {
+      window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.topic+"/two-players";
     }
     else if(game.NumberOfPlayersRequired == 3) {
       window.location.href = "http://172.23.238.164:7000/gameplay/play/"+game.Topic+"/three-players";
