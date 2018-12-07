@@ -1,4 +1,4 @@
-export class createPost {
+export class Post {
     post: string
     topicId: number
     userId: string

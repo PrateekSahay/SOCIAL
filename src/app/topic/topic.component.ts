@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataCollectionService } from '../data-collection.service';
-import { createPost } from "./posts.model";
+import { Post } from "./posts.model";
 import { CookieService } from "ngx-cookie-service";
 
 @Component({
@@ -56,7 +56,7 @@ export class TopicComponent implements OnInit {
 
   createPosts() {
     console.log("--post--", this.post)
-    var feed = new createPost()
+    var feed = new Post()
     feed.post = this.post
     feed.topicId = this.id
     feed.userId = this.userId
