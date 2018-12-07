@@ -6,8 +6,8 @@
     <button mat-raised-button (click)="gotoGameplay()">
       Play
     </button>
-    <button mat-raised-button *ngIf="!follow" (click)="Toggle()">Follow</button>
-    <button mat-raised-button *ngIf="follow" (click)="Toggle()">Unfollow</button>
+    <button mat-raised-button *ngIf="!follow" (click)="toggle()">Follow</button>
+    <button mat-raised-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
   <!-- </mat-card-header> -->
   <!-- <mat-card-content> -->
