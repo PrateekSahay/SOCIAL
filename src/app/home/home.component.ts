@@ -28,13 +28,13 @@ export class HomeComponent implements OnInit {
       if (this.games[i].GameId == GameId) {
         // console.log(game);
         if (this.games[i].NumberOfPlayersRequired == 2) {
-          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/two-players";
+          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + this.games[i].Topic + "/two-players";
         }
         else if (this.games[i].NumberOfPlayersRequired == 3) {
-          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/three-players";
+          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + this.games[i].Topic + "/three-players";
         }
         else {
-          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + game.Topic + "/four-players";
+          window.location.href = "http://172.23.238.164:7000/gameplay/play/" + this.games[i].Topic + "/four-players";
         }
         break;
       }
