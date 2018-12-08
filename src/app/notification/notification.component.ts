@@ -34,8 +34,10 @@ export class NotificationComponent implements OnInit {
      .build();
 
      this.connection.start()
-     .then(() => 
-       console.log('connection established'))
+     .then(() => {
+       console.log('connection established');
+       this.connection.send("Init", this.userId);
+      })
      .catch((err) => console.log('Error::: ', err));
     this.connection.on('Notifications',(notification)=>
     {this.notification = notification;
