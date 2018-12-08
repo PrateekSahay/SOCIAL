@@ -71,7 +71,7 @@ export class TopicComponent implements OnInit {
       var name = new Post()
       name.userName = post.userName
     }
-    this.route.navigate(['/profile/'+name.userName])
+    this.route.navigate(["/profile/"+name.userName])
   }
 
   createPosts() {
