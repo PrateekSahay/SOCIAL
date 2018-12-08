@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataCollectionService } from '../data-collection.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from "@angular/router";
-import { createComment } from "./comment.model"
+import { createComment } from "./comment.model";
+import * as signalR from '@aspnet/signalr';
+
 
 @Component({
   selector: 'app-post',
@@ -17,6 +19,7 @@ export class PostComponent implements OnInit {
   comment: string = ""
   userId: any
   userName: any
+  connection: any
 
   constructor(
     private postService: DataCollectionService,
@@ -27,6 +30,15 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => { this.postId = params.get("id") })
     console.log("---post_details--" + this.postId);
+
+    this.connection = new signalR.HubConnectionBuilder()
+     .withUrl('http://172.23.238.164:7000/notifications')
+     .build();
+
+     this.connection.start()
+     .then(() => 
+       console.log('connection established'))
+     .catch((err) => console.log('Error::: ', err));
 
     this.postService.getPostsById(this.postId).subscribe(
       (data) => {
@@ -64,6 +76,7 @@ export class PostComponent implements OnInit {
     comments.userId = this.userId
     comments.userName = this.userName
     this.postService.postComment(comments).subscribe((data) => console.log(data));
+    this.connection.send("GetNotifications");
     console.log("--comment created--", comments)
   }
 }
