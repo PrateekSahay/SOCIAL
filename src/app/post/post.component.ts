@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { createComment } from "./comment.model";
 import * as signalR from '@aspnet/signalr';
+import { notifications } from '../notification/notification.model'
 
 
 @Component({
@@ -19,6 +20,7 @@ export class PostComponent implements OnInit {
   comment: string = ""
   userId: any
   userName: any
+  topicName: any
   connection: any
 
   constructor(
@@ -30,6 +32,10 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => { this.postId = params.get("id") })
     console.log("---post_details--" + this.postId);
+
+    this.route.paramMap.subscribe(params => { this.topicName = params.get("name") })
+    console.log("---post_details--" + this.topicName);
+   
 
     this.connection = new signalR.HubConnectionBuilder()
      .withUrl('http://172.23.238.164:7000/notifications')
@@ -76,7 +82,17 @@ export class PostComponent implements OnInit {
     comments.userId = this.userId
     comments.userName = this.userName
     this.postService.postComment(comments).subscribe((data) => console.log(data));
-    this.connection.send("GetNotifications");
     console.log("--comment created--", comments)
+  }
+
+  createNotification() {
+    var notification = new notifications()
+    notification.Message = this.userId+"has commented on your post"
+    notification.TargetUrl = "http://172.23.238.164:7000/topics/"+this.topicName+"/post/"+this.postId;
+    notification.Users = [
+      this.post.userId,
+      this.post.comments.userId
+    ]
+    this.connection.Send("GetNotifications")
   }
 }
