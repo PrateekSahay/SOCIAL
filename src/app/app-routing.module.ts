@@ -18,7 +18,7 @@ const routes: Route[] = [
   {path:'topics', component: AllTopicsComponent},
   {path:'messages', component: MessagesComponent},
   {path:'notification', component:NotificationComponent },
-  {path:'/:name', component:UserprofileComponent},
+  {path:'name/:name', component:UserprofileComponent},
   {path:'topics/:id', component:TopicComponent},
   {path:'user/:id', component:PublicprofileComponent},
   {path:'search', component: SearchComponent},
