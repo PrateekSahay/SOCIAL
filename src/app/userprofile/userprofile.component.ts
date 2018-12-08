@@ -45,7 +45,7 @@ export class UserprofileComponent implements OnInit {
     this.email = email;
     this.userId = userId;
 
-    this.postService.getPersonalizedPosts(this.userId).subscribe(
+    this.postService.getUserSpecificPost(this.userId).subscribe(
       (data) => {
         this.posts = data;
         console.log("--personalized posts--", this.posts);

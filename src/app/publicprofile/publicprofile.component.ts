@@ -29,7 +29,7 @@ export class PublicprofileComponent implements OnInit {
       }
     );
 
-    this.postService.getPersonalizedPosts(this.users.userId).subscribe(
+    this.postService.getUserSpecificPost(this.users.userId).subscribe(
       (data) => {
         this.posts = data;
         console.log("--posts--", this.posts);

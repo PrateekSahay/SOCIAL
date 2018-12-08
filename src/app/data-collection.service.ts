@@ -37,6 +37,12 @@ export class DataCollectionService {
     return this.http.get("http://172.23.238.164:7000/socialengine/")
   }
 
+  // Calling in User Component and public profile component
+
+  getUserSpecificPost(id: string) {
+    return this.http.get("http://172.23.238.164:7000/socialengine/posts/user/id/"+id);
+  }
+
   // Calling in topics component
 
   postFeed(feed) {
