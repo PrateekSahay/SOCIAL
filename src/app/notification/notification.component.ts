@@ -33,9 +33,9 @@ export class NotificationComponent implements OnInit {
      .withUrl('http://172.23.238.164:7000/hub/notifications')
      .build();
 
-     this.connection.on('notification', (notification) => {
-       this.notification = notification;
+     this.connection.on("notification", (notification) => {
        console.log("--Notifications--", this.notification)
+       this.notification = notification;
      });
 
      this.connection.start()

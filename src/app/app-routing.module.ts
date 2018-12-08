@@ -22,7 +22,7 @@ const routes: Route[] = [
   {path:'topics/:id', component:TopicComponent},
   {path:'user/:id', component:PublicprofileComponent},
   {path:'search', component: SearchComponent},
-  {path:'topics/:name/post/:id', component: PostComponent},
+  {path:'/post/:id', component: PostComponent},
   {path:'**', component: ErrorPageComponent}
 ];
 
