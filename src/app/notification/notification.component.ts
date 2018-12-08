@@ -30,7 +30,7 @@ export class NotificationComponent implements OnInit {
     this.userId = userId;
     
     this.connection = new signalR.HubConnectionBuilder()
-     .withUrl('http://172.23.238.164:7000/notifications')
+     .withUrl('http://172.23.238.164:7000/hub/notifications')
      .build();
 
      this.connection.start()
