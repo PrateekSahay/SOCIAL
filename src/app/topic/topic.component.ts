@@ -21,6 +21,7 @@ export class TopicComponent implements OnInit {
   userId: any;
   userName: any;
   follow: boolean
+  profileName: any
 
   constructor(
     private topicsService: DataCollectionService,
@@ -63,6 +64,14 @@ export class TopicComponent implements OnInit {
 
   gotoGameplay() {
     window.location.href = "http://172.23.238.164:7000/gameplay/play/"+this.name+"/two-players";
+  }
+
+  gotoProfile() {
+    for(let post of this.posts) {
+      var name = new Post()
+      name.userName = post.userName
+    }
+    this.route.navigate(['/profile/'+name.userName])
   }
 
   createPosts() {
