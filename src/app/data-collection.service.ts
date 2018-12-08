@@ -59,6 +59,6 @@ export class DataCollectionService {
   // Calling in Notifications Component
 
   getNotifications(id: string) {
-    return this.http.get("http://172.23.238.164:7000/notifications/"+id);
+    return this.http.get("http://172.23.238.164:7000/api/notifications/"+id);
   }
 }
