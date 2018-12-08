@@ -4,6 +4,7 @@ import { DataCollectionService } from '../data-collection.service';
 import { Post } from "./posts.model";
 import { CookieService } from "ngx-cookie-service";
 import { Follow } from "./follow.model";
+import { users } from "./user.model";
 
 @Component({
   selector: 'app-topic',
@@ -22,6 +23,7 @@ export class TopicComponent implements OnInit {
   userName: any;
   follow: boolean
   profileName: any
+  user: users;
 
   constructor(
     private topicsService: DataCollectionService,
@@ -32,10 +34,10 @@ export class TopicComponent implements OnInit {
   ngOnInit() {
     console.log("Init in topic");
     this.route.paramMap.subscribe(params => { this.name = params.get("id") })
-    console.log("---topic_details--"+this.name);
+    console.log("---topic_details--" + this.name);
 
     this.route.queryParams.subscribe(params => { this.id = +params["topicData"] })
-    console.log("---topic_details--"+this.id);
+    console.log("---topic_details--" + this.id);
 
     this.topicsService.getPosts(this.name).subscribe(
       (data) => {
@@ -43,36 +45,38 @@ export class TopicComponent implements OnInit {
         console.log("Posts", this.posts);
       });
 
-      let token = this.cookieService.get("UserLoginAPItoken");
-      let jwtData = token.split('.')[1];
-      let decodedJwtJsonData = window.atob(jwtData);
-      let decodedJwtData = JSON.parse(decodedJwtJsonData);
-      let userId = decodedJwtData.UserID;
-      let userName = decodedJwtData.Name;
+    let token = this.cookieService.get("UserLoginAPItoken");
+    let jwtData = token.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    let userId = decodedJwtData.UserID;
+    let userName = decodedJwtData.Name;
 
-      this.userId = userId;
-      this.userName = userName;
+    this.user = { userId, userName,  };
   }
 
-  toggle(){
+  toggle() {
+    var someObj:  {}
+    someObj
     var followingTopics = new Follow()
     followingTopics.topicId = this.id
     followingTopics.userId = this.userId
+    followingTopics.users = this.user;
     // followingTopics.follow = this.follow;
     this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
     this.follow = !this.follow;
   }
 
   gotoGameplay() {
-    window.location.href = "http://172.23.238.164:7000/gameplay/play/"+this.name+"/two-players";
+    window.location.href = "http://172.23.238.164:7000/gameplay/play/" + this.name + "/two-players";
   }
 
   gotoProfile() {
-    for(let post of this.posts) {
+    for (let post of this.posts) {
       var name = new Post()
       name.userName = post.userName
     }
-    this.router.navigate(['/profile/'+name.userName])
+    this.router.navigate(['/profile/' + name.userName])
   }
 
   createPosts() {
