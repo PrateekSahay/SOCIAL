@@ -90,10 +90,10 @@ export class PostComponent implements OnInit {
     var notification = new notifications()
     notification.Message = this.userId+"has commented on your post"
     notification.TargetUrl = "http://172.23.238.164:7000/topics/"+this.topicName+"/post/"+this.postId;
-    notification.Users = [
-      this.post.userId,
-      this.post.comments.userId
-    ]
+    // notification.Users = [
+    //   this.post.userId,
+    //   this.post.comments.userId
+    // ]
     // this.connection.Send("GetNotifications")
   }
 }
