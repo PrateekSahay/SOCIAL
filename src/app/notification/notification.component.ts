@@ -34,14 +34,13 @@ export class NotificationComponent implements OnInit {
      .build();
 
      this.connection.start()
-     .then(() => {
-       console.log('connection established');
-     })
+     .then(() => 
+       console.log('connection established'))
      .catch((err) => console.log('Error::: ', err));
     this.connection.on('Notifications',(notification:string)=>
-    {this.notification = notification;}
-    );
-
+    {this.notification = notification;
+    console.log("--Notifications--", this.notification)
+    });
 
     this.notificationService.getNotifications(this.userId).subscribe(
       (data) => {

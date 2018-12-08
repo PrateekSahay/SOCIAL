@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
     this.connection = new signalR.HubConnectionBuilder()
     .withUrl('http://172.23.238.164:7000/gameplayhub')
     .build();
-    this.connection.start().then(() => this.connection.send("SendPendingGames"))
+    this.connection.start()
+    .then(() => this.connection.send("SendPendingGames"))
     .catch((err) => console.log('Error::: ', err));
     this.connection.on("GetPendingGames", (res) => {
     this.games = res
