@@ -26,6 +26,7 @@ export class TopicComponent implements OnInit {
   constructor(
     private topicsService: DataCollectionService,
     private route: ActivatedRoute,
+    private router: Router,
     private cookieService: CookieService) { }
 
   ngOnInit() {
@@ -71,7 +72,7 @@ export class TopicComponent implements OnInit {
       var name = new Post()
       name.userName = post.userName
     }
-    this.route.navigate(["/profile/"+name.userName])
+    this.router.navigate(['/profile/'+name.userName])
   }
 
   createPosts() {
