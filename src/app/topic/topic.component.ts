@@ -62,7 +62,7 @@ export class TopicComponent implements OnInit {
   }
 
   gotoGameplay() {
-    window.location.href = "http://172.23.238.164:7000/gameplay/play/"+this.name;
+    window.location.href = "http://172.23.238.164:7000/gameplay/play/"+this.name+"/two-players";
   }
 
   createPosts() {
