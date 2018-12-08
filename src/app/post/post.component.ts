@@ -43,8 +43,9 @@ export class PostComponent implements OnInit {
 
      this.connection.start()
      .then(() => 
-       console.log('connection established'))
-     .catch((err) => console.log('Error::: ', err));
+       {console.log('connection established');
+       this.connection.Send("GetNotifications");})
+      .catch((err) => console.log('Error::: ', err));
 
     this.postService.getPostsById(this.postId).subscribe(
       (data) => {
@@ -93,6 +94,6 @@ export class PostComponent implements OnInit {
       this.post.userId,
       this.post.comments.userId
     ]
-    this.connection.Send("GetNotifications")
+    // this.connection.Send("GetNotifications")
   }
 }
