@@ -22,13 +22,6 @@ export class PublicprofileComponent implements OnInit {
     this.route.paramMap.subscribe(params => {this.name = params.get("id")})
     console.log("--username--", this.name);
 
-    this.postService.getUsers().subscribe(
-      (data) => {
-        this.users = data;
-        console.log("--users--", this.users);
-      }
-    );
-
     this.postService.getUserSpecificPost(this.users.userId).subscribe(
       (data) => {
         this.posts = data;
