@@ -1,54 +1,58 @@
 <!-- Toolbar begins -->
+<div class="quizrt-l-container">
+  <mat-toolbar color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
 
-<mat-toolbar color="primary">
-  <div fxShow="true" fxHide.gt-sm="true">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-  </div>
-
-   <a mat-button class="AppName" routerLink="/">
-    <!-- <img src="https://files.slack.com/files-pri/TCDUW1Q9M-FEH3CTLF7/imageedit_4_7382353890.png" /> -->
-    <span>QuizRT</span>
-  </a>
-  <span class="spacer"></span>
-
-  <!-- Display items on laptop view in toolbar -->
-
-  <div fxShow="true" fxHide.lt-md="true">
-    <a mat-button routerLink="">Home</a>
-    <a mat-button routerLink="topics">Topics</a>
-    <!-- <a mat-button routerLink="messages">Message</a> -->
-    <a mat-button routerLink="notification">Notifications</a>
-    <a mat-button routerLink="search">
-      <mat-icon>search</mat-icon>Search
+     <a mat-button class="AppName" routerLink="/">
+      <!-- <img src="https://files.slack.com/files-pri/TCDUW1Q9M-FEH3CTLF7/imageedit_4_7382353890.png" /> -->
+      <span>QuizRT</span>
     </a>
-    <button mat-button (click)="gotoProfile()">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-  </div>
+    <span class="spacer"></span>
 
-  <!-- display content in mobile view -->
+    <!-- Display items on laptop view in toolbar -->
 
-  <mat-icon fxShow="false" fxHide.lt-md="false" routerLink="search">search</mat-icon>
-  <button mat-button fxShow="false" fxHide.lt-md="false" (click)="gotoProfile()">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-
-</mat-toolbar>
-
-<!-- Display content in sidenav-container in mobile view -->
-
-<mat-sidenav-container fxFlexFill class="sidenav-container">
-  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
-    <div fxLayout="column">
+    <div fxShow="true" fxHide.lt-md="true">
       <a mat-button routerLink="">Home</a>
       <a mat-button routerLink="topics">Topics</a>
       <!-- <a mat-button routerLink="messages">Message</a> -->
       <a mat-button routerLink="notification">Notifications</a>
+      <a mat-button routerLink="search">
+        <mat-icon>search</mat-icon>Search
+      </a>
+      <button mat-button (click)="gotoProfile()">
+        <mat-icon>account_circle</mat-icon>
+      </button>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content fxFlexFill>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+    <!-- display content in mobile view -->
+
+    <mat-icon class="nav-btn" fxShow="false" fxHide.lt-md="false" routerLink="search">search</mat-icon>
+    <a mat-button routerLink="notification" class="badge-top-right" id="notification-btn" fxShow="false" fxHide.lt-md="false">
+      <mat-icon matBadge="&#8203;" [matBadgeHidden]="notificationCount==0" matBadgeSize="small" matBadgeColor="warn">notifications</mat-icon>
+    </a>
+    <button class="nav-btn" mat-button fxShow="false" fxHide.lt-md="false" (click)="gotoProfile()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <!-- Display content in sidenav-container in mobile view -->
+
+  <mat-sidenav-container fxFlexFill class="sidenav-container">
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+      <div fxLayout="column">
+        <a mat-button routerLink="">Home</a>
+        <a mat-button routerLink="topics">Topics</a>
+        <!-- <a mat-button routerLink="messages">Message</a> -->
+        <a mat-button routerLink="notification">Notifications</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

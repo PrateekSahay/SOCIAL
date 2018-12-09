@@ -28,6 +28,7 @@ export class DataCollectionService {
   // Calling in Home Component
 
   getPersonalizedPosts(id: string) {
+    console.log("Inside Get Personalized Posts");
     return this.http.get("http://172.23.238.164:7000/socialengine/posts/user/"+id)
   }
 
@@ -69,7 +70,7 @@ export class DataCollectionService {
   }
 
   // Calling in topic component
-  
+
   deleteFollowingTopic(follow) {
     return this.http.delete("http://172.23.238.164:7000/socialengine/follow", follow)
     // return this.http.delete("http://")

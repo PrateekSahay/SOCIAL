@@ -28,22 +28,6 @@ export class NotificationComponent implements OnInit {
     let userId = decodedJwtData.UserID;
 
     this.userId = userId;
-    
-    this.connection = new signalR.HubConnectionBuilder()
-     .withUrl('http://172.23.238.164:7000/hub/notifications')
-     .build();
-
-     this.connection.on("notification", (notification) => {
-       console.log("--Notifications--", this.notification)
-       this.notification = notification;
-     });
-
-     this.connection.start()
-     .then(() => {
-       console.log('connection established');
-       this.connection.send("Init", this.userId);
-      })
-     .catch((err) => console.log('Error::: ', err));
 
     this.notificationService.getNotifications(this.userId).subscribe(
       (data) => {

@@ -1,10 +1,10 @@
 .AppName {
-  font-size: 150%;
+  font-family: 'Product Sans';
 }
 
 .mat-toolbar {
   height: 10vh;
-  background-color: #05668D;
+  background-color: #404dd5;
 }
 
 div {
@@ -12,7 +12,7 @@ div {
 }
 
 .mat-sidenav-container {
-  background-color: #E3EBFF;
+  background-color: #404dd5;
   min-height: 90vh !important;
 }
 
@@ -32,17 +32,34 @@ button {
 }
 
 .mat-sidenav-content {
-  font-size: 200%;
-  text-align: center;
-}
-
-.mat-sidenav-content {
-  background-color: #E3EBFF;
-  color: #2B223B;
   height: 1000vh;
+  background-color: #404dd5;
 }
 
-.mat-drawer-container {
-  color:#2B223B;
+.nav-btn {
+  padding: 0px;
 }
+
+/* #notification-btn:before {
+  content: attr(data-count);
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+  background: pink;
+  border: 1px solid #FFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  color: #FFF;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+}
+
+#notification-btn.badge-top-right:before {
+  left: auto;
+  right: -7px;
+} */
+
 
