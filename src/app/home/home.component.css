@@ -1,6 +1,7 @@
 .quizrt-l-container {
   color: white;
   padding: 30px;
+  overflow-y: scroll;
 }
 
 .quizrt-c-topic__container {
