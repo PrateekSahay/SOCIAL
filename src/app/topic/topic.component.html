@@ -1,29 +1,30 @@
 <div class="container">
   <h3 class="title">{{name}}</h3>
   <div class="action-btns">
-    <button mat-raised-button (click)="gotoGameplay()">
+    <button class="title" mat-button (click)="gotoGameplay()">
       Play
     </button>
-    <button mat-button *ngIf="!follow" (click)="toggle()">Follow</button>
-    <button mat-button *ngIf="follow" (click)="toggle()">Unfollow</button>
+    <button class="title" mat-button *ngIf="!follow" (click)="toggle()">Follow</button>
+    <button class="title" mat-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
   <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
-  <div>
-    <button mat-raised-button (click)="createPosts()">Post</button>
+  <div class="post-btn-wrapper">
+    <button class="title" mat-button (click)="createPosts()">Post</button>
   </div>
   <h3 class="title">All Posts</h3>
-  <div *ngFor="let post of posts">
-    <mat-card class="post-card">
-      <mat-card-header>
-        <div mat-card-avatar class="post-header-image"></div>
-        <mat-card-title (click)="gotoProfile()">{{post.userName}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content routerLink="/post/{{post.postId}}">
-        <p>
-          {{post.post}}
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <mat-card class="quizrt-c-post" *ngFor="let post of posts">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="post-header-image"></div> -->
+      <div mat-card-avatar class="quizrt-c-post__avatar"></div>
+      <mat-card-title routerLink="#">{{post.userName}}</mat-card-title>
+      <mat-card-subtitle>{{post.modifiedDate}}</mat-card-subtitle>
+    </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content routerLink="/post/{{post.postId}}">
+      <p>
+        {{post.post}}
+      </p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
