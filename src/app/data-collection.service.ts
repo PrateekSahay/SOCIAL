@@ -70,15 +70,9 @@ export class DataCollectionService {
   }
 
   // Calling in topic component
-<<<<<<< HEAD
   
   // deleteFollowingTopic(follow) {
   //   return this.http.delete("http://172.23.238.164:7000/socialengine/follow", follow)
-=======
-
-  deleteFollowingTopic(follow) {
-    return this.http.delete("http://172.23.238.164:7000/socialengine/follow", follow)
->>>>>>> d4e1bd99f39b4904eba886a43b77fc2686b80c41
     // return this.http.delete("http://")
   
 }
