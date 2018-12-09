@@ -56,6 +56,8 @@ export class TopicComponent implements OnInit {
 
     this.user = { userId, userName, };
 
+    console.log(this.user.userId);
+
     var check = new Follow()
     check.topicId = this.id
     check.userId = this.user.userId
