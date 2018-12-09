@@ -79,8 +79,9 @@ export class TopicComponent implements OnInit {
     for (let post of this.posts) {
       var name = new Post()
       name.userName = post.userName
+      name.userId = post.userId
     }
-    this.router.navigate(['/profile/' + name.userName])
+    this.router.navigate(['/profile/' + name.userName], { queryParams: {UserData: name.userId}})
   }
 
   createPosts() {

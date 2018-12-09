@@ -38,6 +38,10 @@ export class UserprofileComponent implements OnInit {
     this.route.paramMap.subscribe(params => { this.name = params.get("id") })
     console.log("---topic_details--" + this.name);
 
+    this.route.queryParams.subscribe(params => { this.userId = +params["UserData"] })
+    console.log("---topic_details--" + this.userId);
+
+
 
     this.postService.getUserSpecificPost(this.userId).subscribe(
       (data) => {
