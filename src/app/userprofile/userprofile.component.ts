@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { DataCollectionService } from '../data-collection.service';
+import { ActivatedRoute } from '@angular/router';
 
 export interface PeriodicElement {
   topic: string;
@@ -29,21 +30,14 @@ export class UserprofileComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
-    private postService: DataCollectionService
+    private postService: DataCollectionService,
+    private route : ActivatedRoute
     ) { }
 
   ngOnInit() {
-    let token = this.cookieService.get("UserLoginAPItoken");
-    let jwtData = token.split('.')[1];
-    let decodedJwtJsonData = window.atob(jwtData);
-    let decodedJwtData = JSON.parse(decodedJwtJsonData);
-    let userId = decodedJwtData.UserID;
-    let fullName = decodedJwtData.Name;
-    let email = decodedJwtData.Email;
+    this.route.paramMap.subscribe(params => { this.name = params.get("id") })
+    console.log("---topic_details--" + this.name);
 
-    this.name = fullName;
-    this.email = email;
-    this.userId = userId;
 
     this.postService.getUserSpecificPost(this.userId).subscribe(
       (data) => {
