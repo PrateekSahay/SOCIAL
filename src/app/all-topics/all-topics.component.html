@@ -1,10 +1,29 @@
-<div class="Topics-container">
+<h3 class="quizrt-c-section__title">Topics</h3>
+  <div class="quizrt-c-topic__container">
+    <mat-card class="quizrt-c-topic__card" *ngFor="let topic of topics" class="quizrt-c-topics">
+      <mat-card-header>
+        <mat-card-title>{{topic.topicName | titlecase}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="quizrt-l-topic__content">
+        <img class="quizrt-c-topic__icon" src="./assets/topic.png" alt="" srcset="">
+      </mat-card-content>
+      <mat-card-actions class="quizrt-l-action__container">
+        <button mat-button (click)="gotoGameplay(topic.topicName)">Play</button>
+        <button mat-button (click)="gotoTopic(topic)">View</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+
+
+<!-- <div class="Topics-container">
   <h4>Topics</h4>
-  <!-- <button (click)="function_temp()">click</button> -->
+  <button (click)="function_temp()">click</button>
   <div class="Topics-flex_container">
     <div *ngFor="let topic of topics">
 
-      <!-- contain each topic information  -->
+      contain each topic information 
 
       <mat-card class="Topic-card">
         <mat-card-content class="Topic-card__content">
@@ -13,7 +32,7 @@
           </mat-card-title>
         </mat-card-content>
 
-        <!-- Buttons used to view topic page or play game directly or follow -->
+        Buttons used to view topic page or play game directly or follow
 
         <mat-card-actions class="Topic-action_buttons">
           <button mat-stroked-button (click)="gotoGameplay(topic.topicName)" routerLinkActive="active">Play</button>
@@ -22,4 +41,4 @@
       </mat-card>
     </div>
   </div>
-</div>
+</div> -->
