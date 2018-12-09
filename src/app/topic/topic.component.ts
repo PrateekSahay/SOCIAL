@@ -60,7 +60,7 @@ export class TopicComponent implements OnInit {
     someObj
     var followingTopics = new Follow()
     followingTopics.topicId = this.id
-    followingTopics.userId = this.userId
+    followingTopics.userId = this.user.userId
     followingTopics.users = this.user;
     // followingTopics.follow = this.follow;
     this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
@@ -84,8 +84,8 @@ export class TopicComponent implements OnInit {
     var feed = new Post()
     feed.post = this.post
     feed.topicId = this.id
-    feed.userId = this.userId
-    feed.userName = this.userName
+    feed.userId = this.user.userId
+    feed.userName = this.user.userName
     this.topicsService.postFeed(feed).subscribe((data) => console.log(data));
     console.log("--post--", feed)
   }
