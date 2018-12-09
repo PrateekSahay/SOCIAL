@@ -1,6 +1,24 @@
-textarea {
+
+#title {
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.post-card {
   border-radius: 8px;
-  border-color: #05668D;
+}
+
+textarea {
+  font-family: 'Product Sans';
+  border-radius: 8px;
+  color: black;
   background-color: white;
 }
 
@@ -10,11 +28,6 @@ button {
 
 ::placeholder {
   font-size: 25px;
-}
-
-mat-card {
-  max-width: 400px;
-  justify-self: center;
 }
 
 @media(max-width: 320px) {

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as signalR from '@aspnet/signalr';
+import * as jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-navbar',
@@ -42,9 +43,8 @@ export class NavbarComponent {
      });
 
     let token = this.cookieService.get("UserLoginAPItoken");
-    let jwtData = token.split('.')[1];
-    let decodedJwtJsonData = window.atob(jwtData);
-    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+
+    let decodedJwtData = jwtDecode(token);
     let userId = decodedJwtData.UserID;
     let userName = decodedJwtData.Name;
 

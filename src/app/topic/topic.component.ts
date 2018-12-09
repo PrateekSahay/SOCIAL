@@ -5,6 +5,7 @@ import { Post } from "./posts.model";
 import { CookieService } from "ngx-cookie-service";
 import { Follow } from "./follow.model";
 import { user } from "./user.model";
+import * as jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-topic',
@@ -47,9 +48,8 @@ export class TopicComponent implements OnInit {
 
 
     let token = this.cookieService.get("UserLoginAPItoken");
-    let jwtData = token.split('.')[1];
-    let decodedJwtJsonData = window.atob(jwtData);
-    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+
+    let decodedJwtData = jwtDecode(token);
     let userId = decodedJwtData.UserID;
     let userName = decodedJwtData.Name;
 

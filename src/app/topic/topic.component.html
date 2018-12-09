@@ -1,25 +1,15 @@
-<div class="title">
-  <div class="item">
-    <!-- <mat-card-title> -->
-    <h4 id="title">{{name}}</h4>
-    <!-- </mat-card-title> -->
+<div class="container">
+  <h3 id="title">{{name}}</h3>
+  <div class="action-btns">
     <button mat-raised-button (click)="gotoGameplay()">
       Play
     </button>
     <button mat-raised-button *ngIf="!follow" (click)="toggle()">Follow</button>
     <button mat-raised-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
-</div>
-
-<div class="posts">
-
-  <div class="WritePost">
-    <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
-    <button mat-raised-button (click)="createPosts()">Post</button>
-  </div>
-
+  <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
+  <button mat-raised-button (click)="createPosts()">Post</button>
   <h2>All Posts</h2>
-
   <div *ngFor="let post of posts">
     <mat-card class="post-card">
       <mat-card-header>
@@ -33,4 +23,5 @@
       </mat-card-content>
     </mat-card>
   </div>
-</div>  
+</div>
+

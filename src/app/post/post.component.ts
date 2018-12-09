@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { createComment } from "./comment.model";
 import * as signalR from '@aspnet/signalr';
 import { notifications } from '../notification/notification.model'
+import * as jwtDecode from 'jwt-decode';
 
 
 @Component({
@@ -35,14 +36,14 @@ export class PostComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => { this.topicName = params.get("name") })
     console.log("---post_details--" + this.topicName);
-   
+
 
     this.connection = new signalR.HubConnectionBuilder()
      .withUrl('http://172.23.238.164:7000/notifications')
      .build();
 
      this.connection.start()
-     .then(() => 
+     .then(() =>
        {console.log('connection established');
        this.connection.Send("GetNotifications");})
       .catch((err) => console.log('Error::: ', err));
@@ -51,13 +52,11 @@ export class PostComponent implements OnInit {
       (data) => {
         this.post = data;
         console.log("--post--", this.post);
-      }  
+      }
     );
 
     let token = this.cookieService.get("UserLoginAPItoken");
-    let jwtData = token.split('.')[1];
-    let decodedJwtJsonData = window.atob(jwtData);
-    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    let decodedJwtData = jwtDecode(token);
     let userId = decodedJwtData.UserID;
     let userName = decodedJwtData.Name;
 
@@ -72,7 +71,7 @@ export class PostComponent implements OnInit {
       }
     });
 
-    
+
   }
 
   createComment() {
