@@ -60,7 +60,8 @@ export class TopicComponent implements OnInit {
 
     var check = new Follow()
     check.TopicId = this.id
-    check.UserId = this.user.userId
+    //changed this.user.userId to userId
+    check.UserId = this.userId
     this.topicsService.getCheckingTopics(check).subscribe(
       (data) => {
         this._follow = data;
