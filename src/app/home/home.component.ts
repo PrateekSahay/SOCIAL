@@ -29,12 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dataService.getPersonalizedPosts(this.userId).subscribe(
-      (data) => {
-        this.posts = data;
-        console.log("--personalizedPosts--", this.posts);
-      }
-    );
+    
 
     this.dataService.getTopics().subscribe(
       (data) => {
@@ -57,6 +52,13 @@ export class HomeComponent implements OnInit {
 
     let decodedJwtData = jwtDecode(token);
     this.userId = decodedJwtData.UserID;
+
+    this.dataService.getPersonalizedPosts(this.userId).subscribe(
+      (data) => {
+        this.posts = data;
+        console.log("--personalizedPosts--", this.posts);
+      }
+    );
 
 
   }
