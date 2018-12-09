@@ -8,7 +8,9 @@
     <button mat-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
   <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
-  <button mat-raised-button (click)="createPosts()">Post</button>
+  <div>
+    <button mat-raised-button (click)="createPosts()">Post</button>
+  </div>
   <h3 class="title">All Posts</h3>
   <div *ngFor="let post of posts">
     <mat-card class="post-card">
