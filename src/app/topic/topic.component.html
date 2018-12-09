@@ -1,15 +1,15 @@
 <div class="container">
-  <h3 id="title">{{name}}</h3>
+  <h3 class="title">{{name}}</h3>
   <div class="action-btns">
     <button mat-raised-button (click)="gotoGameplay()">
       Play
     </button>
-    <button mat-raised-button *ngIf="!follow" (click)="toggle()">Follow</button>
-    <button mat-raised-button *ngIf="follow" (click)="toggle()">Unfollow</button>
+    <button mat-button *ngIf="!follow" (click)="toggle()">Follow</button>
+    <button mat-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
   <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
   <button mat-raised-button (click)="createPosts()">Post</button>
-  <h2>All Posts</h2>
+  <h3 class="title">All Posts</h3>
   <div *ngFor="let post of posts">
     <mat-card class="post-card">
       <mat-card-header>

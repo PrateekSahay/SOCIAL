@@ -1,5 +1,5 @@
 
-#title {
+.title {
   color: white;
 }
 
@@ -9,6 +9,7 @@
   height: 100%;
   width: 100%;
   padding: 20px;
+  align-items: center;
 }
 
 .post-card {
@@ -20,75 +21,4 @@ textarea {
   border-radius: 8px;
   color: black;
   background-color: white;
-}
-
-button {
-  font-size: 20px;
-}
-
-::placeholder {
-  font-size: 25px;
-}
-
-@media(max-width: 320px) {
-  textarea {
-    width: 90%;
-  }
-}
-
-@media(max-width: 375px) {
-  textarea {
-    width: 90%;
-  }
-}
-
-@media(max-width: 425px) {
-  textarea {
-    width: 90%;
-  }
-}
-
-@media(min-width: 560px) {
-  .title {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  textarea {
-    width: 90%;
-  }
-}
-
-@media(min-width: 900px) {
-  .title {
-    display: block;
-    float: left;
-    margin-left: 10%;
-    margin-top: 5%;
-    text-align: left;
-  }
-
-  .posts {
-    width: 50%;
-    float: right;
-    margin-top: 5%;
-    margin-right: 9%;
-  }
-}
-
-@media(min-width: 1800px) {
-  .title {
-    display: block;
-    float: left;
-    margin-left: 10%;
-    margin-top: 5%;
-    text-align: left;
-  }
-
-  .posts {
-    width: 30%;
-    float: right;
-    margin-top: 5%;
-    margin-right: 20%;
-  }
 }
