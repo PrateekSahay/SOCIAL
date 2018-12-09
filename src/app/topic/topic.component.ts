@@ -21,7 +21,7 @@ export class TopicComponent implements OnInit {
   post: string = ""
   userId: any;
   userName: any;
-  follow: boolean
+  follow: boolean = false
   profileName: any
   user: users;
 
@@ -52,18 +52,22 @@ export class TopicComponent implements OnInit {
     let userId = decodedJwtData.UserID;
     let userName = decodedJwtData.Name;
 
-    this.user = { userId, userName,  };
+    this.user = { userId, userName, };
   }
 
   toggle() {
-    var someObj:  {}
-    someObj
     var followingTopics = new Follow()
     followingTopics.topicId = this.id
     followingTopics.userId = this.user.userId
     followingTopics.users = this.user;
-    // followingTopics.follow = this.follow;
-    this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
+    followingTopics.follow = this.follow;
+    if (followingTopics.follow == false) {
+      this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
+    }
+
+    else {
+      this.topicsService.deleteFollowingTopic(followingTopics).subscribe((data) => console.log(data));
+    }
     this.follow = !this.follow;
   }
 

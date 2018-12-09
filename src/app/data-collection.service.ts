@@ -56,7 +56,7 @@ export class DataCollectionService {
     return this.http.post("http://172.23.238.164:7000/socialengine/comment", comment);
   }
 
-  // Calling in All-topics and topics component
+  // Calling in topics component
 
   postFollowingTopics(Follow) {
     return this.http.post("http://172.23.238.164:7000/socialengine/follow", Follow);
@@ -66,5 +66,11 @@ export class DataCollectionService {
 
   getNotifications(id: string) {
     return this.http.get("http://172.23.238.164:7000/api/notifications/"+id);
+  }
+
+  // Calling in topic component
+  
+  deleteFollowingTopic(follow) {
+    return this.http.delete("http://172.23.238.164:7000/socialengine/follow", follow)
   }
 }

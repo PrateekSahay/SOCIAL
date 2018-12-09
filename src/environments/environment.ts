@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  gameplayWaiting: "http://172.23.238.164:7000/gameplay"
 };
 
 /*
