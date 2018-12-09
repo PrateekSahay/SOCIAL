@@ -31,10 +31,10 @@ export class DataCollectionService {
     return this.http.get("http://172.23.238.164:7000/socialengine/posts/user/"+id)
   }
 
-  // Calling in Public Profile Component
+  // Calling in All topics
 
-  getUsers() {
-    return this.http.get("http://172.23.238.164:7000/socialengine/")
+  getCheckingTopics(follow) {
+    return this.http.get("http://172.23.238.164:7000/socialengine/follow/check", follow)
   }
 
   // Calling in User Component and public profile component
@@ -72,5 +72,6 @@ export class DataCollectionService {
   
   deleteFollowingTopic(follow) {
     return this.http.delete("http://172.23.238.164:7000/socialengine/follow", follow)
+    // return this.http.delete("http://")
   }
 }

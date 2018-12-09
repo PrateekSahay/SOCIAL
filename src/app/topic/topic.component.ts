@@ -21,7 +21,8 @@ export class TopicComponent implements OnInit {
   post: string = ""
   userId: any;
   userName: any;
-  follow: boolean = false
+  follow: any
+  _follow: any
   profileName: any
   user: user;
 
@@ -44,6 +45,18 @@ export class TopicComponent implements OnInit {
         this.posts = data;
         console.log("Posts", this.posts);
       });
+
+      var check = new Follow()
+      check.topicId = this.id
+      check.userId = this.user.userId
+    this.topicsService.getCheckingTopics(check).subscribe(
+      (data) => {
+        this._follow = data;
+        console.log("--Follow--", this._follow)
+      }
+    )
+
+    this.follow = this._follow 
 
     let token = this.cookieService.get("UserLoginAPItoken");
     let jwtData = token.split('.')[1];
