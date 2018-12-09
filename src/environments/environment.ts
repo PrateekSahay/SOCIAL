@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  gameplayWaiting: "http://172.23.238.164:7000/gameplay"
+  gameplay: "http://172.23.238.164:7000/gameplay",
+  gameplayHub: "http://172.23.238.164:7000/gameplayhub",
 };
 
 /*

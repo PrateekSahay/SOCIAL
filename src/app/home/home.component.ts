@@ -3,6 +3,11 @@ import * as signalR from '@aspnet/signalr';
 import { DataCollectionService } from '../data-collection.service'
 import { CookieService } from 'ngx-cookie-service';
 
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
+import { topicClass } from '../all-topics/topic.model';
+import * as jwtDecode from 'jwt-decode';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,42 +15,63 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit {
 
-  connection: any
-  games: any
-  posts: any
-  userId: any
+  connection: any;
+  games: any;
+  posts: any;
+  userId: any;
+  topics: any;
 
   constructor(
-    private postService: DataCollectionService,
-    private cookieService: CookieService
+    private dataService: DataCollectionService,
+    private cookieService: CookieService,
+    private router: Router
     ) { }
 
   ngOnInit() {
+
+    this.dataService.getPersonalizedPosts(this.userId).subscribe(
+      (data) => {
+        this.posts = data;
+        console.log("--personalizedPosts--", this.posts);
+      }
+    );
+
+    this.dataService.getTopics().subscribe(
+      (data) => {
+      this.topics = data;
+      console.log("--topics--", this.topics);
+    });
+
     this.connection = new signalR.HubConnectionBuilder()
-    .withUrl('http://172.23.238.164:7000/gameplayhub')
+    .withUrl(environment.gameplayHub)
     .build();
     this.connection.start()
     .then(() => this.connection.send("SendPendingGames"))
     .catch((err) => console.log('Error::: ', err));
     this.connection.on("GetPendingGames", (res) => {
-    this.games = res
+      this.games = res
       console.log("pending games", this.games);
     });
 
     let token = this.cookieService.get("UserLoginAPItoken");
-    let jwtData = token.split('.')[1];
-    let decodedJwtJsonData = window.atob(jwtData);
-    let decodedJwtData = JSON.parse(decodedJwtJsonData);
-    let userId = decodedJwtData.UserID;
 
-    this.userId = userId;
+    let decodedJwtData = jwtDecode(token);
+    this.userId = decodedJwtData.UserID;
 
-    this.postService.getPersonalizedPosts(this.userId).subscribe(
-      (data) => {
-        this.posts = data;
-        console.log("--personalizedPosts--", this.posts);
-      }
-    )
+
+  }
+
+  gotoGameplay(topicName) {
+    window.location.href = `${environment.gameplay}/play/${topicName}/two-players`;
+  }
+
+  gotoTopic(topicData) {
+    var topic = new topicClass()
+    topic.posts = topicData.posts
+    topic.topic_id = topicData.topicId
+    topic.topic_name = topicData.topicName
+    console.log("--selected--", topic)
+    this.router.navigate(['/topics/', topicData.topicName], { queryParams: {topicData: topicData.topicId}})
   }
 
   gotoJoiningPage(GameId: string) {
