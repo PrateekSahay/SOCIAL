@@ -10,12 +10,11 @@
     <button mat-raised-button *ngIf="follow" (click)="toggle()">Unfollow</button>
   </div>
 </div>
-</div>
 
 <div class="posts">
 
   <div class="WritePost">
-    <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post' ></textarea>
+    <textarea name="textarea" type="text" rows="5" cols="59" placeholder="Write your post here" [(ngModel)]='post'></textarea>
     <button mat-raised-button (click)="createPosts()">Post</button>
   </div>
 
@@ -27,24 +26,11 @@
         <div mat-card-avatar class="post-header-image"></div>
         <mat-card-title (click)="gotoProfile()">{{post.userName}}</mat-card-title>
       </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content routerLink="/post/{{post.postId}}">
         <p>
           {{post.post}}
         </p>
       </mat-card-content>
-      <!-- <mat-card-actions>
-         <button mat-button>Comments</button>
-        <mat-expansion-panel class="mat-elevation-z0">
-          <mat-expansion-panel-header>
-            Comments
-          </mat-expansion-panel-header>
-          <mat-list *ngFor="let commentitem of postItem.comment_data">
-            <mat-list-item>{{commentitem.comment}}</mat-list-item>
-            <mat-divider></mat-divider>
-          </mat-list>
-        </mat-expansion-panel>
-      </mat-card-actions> -->
     </mat-card>
   </div>
-</div>
+</div>  
