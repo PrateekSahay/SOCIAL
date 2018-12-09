@@ -46,17 +46,6 @@ export class TopicComponent implements OnInit {
         console.log("Posts", this.posts);
       });
 
-      var check = new Follow()
-      check.topicId = this.id
-      check.userId = this.user.userId
-    this.topicsService.getCheckingTopics(check).subscribe(
-      (data) => {
-        this._follow = data;
-        console.log("--Follow--", this._follow)
-      }
-    )
-
-    this.follow = this._follow 
 
     let token = this.cookieService.get("UserLoginAPItoken");
     let jwtData = token.split('.')[1];
@@ -66,6 +55,19 @@ export class TopicComponent implements OnInit {
     let userName = decodedJwtData.Name;
 
     this.user = { userId, userName, };
+
+    var check = new Follow()
+    check.topicId = this.id
+    check.userId = this.user.userId
+    this.topicsService.getCheckingTopics(check).subscribe(
+      (data) => {
+        this._follow = data;
+        console.log("--Follow--", this._follow)
+      }
+    )
+
+    this.follow = this._follow
+
   }
 
   toggle() {
@@ -94,7 +96,7 @@ export class TopicComponent implements OnInit {
       name.userName = post.userName
       name.userId = post.userId
     }
-    this.router.navigate(['/profile/' + name.userName], { queryParams: {UserData: name.userId}})
+    this.router.navigate(['/profile/' + name.userName], { queryParams: { UserData: name.userId } })
   }
 
   createPosts() {
