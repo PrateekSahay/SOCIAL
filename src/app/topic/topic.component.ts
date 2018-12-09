@@ -4,7 +4,7 @@ import { DataCollectionService } from '../data-collection.service';
 import { Post } from "./posts.model";
 import { CookieService } from "ngx-cookie-service";
 import { Follow } from "./follow.model";
-import { users } from "./user.model";
+import { user } from "./user.model";
 
 @Component({
   selector: 'app-topic',
@@ -23,7 +23,7 @@ export class TopicComponent implements OnInit {
   userName: any;
   follow: boolean = false
   profileName: any
-  user: users;
+  user: user;
 
   constructor(
     private topicsService: DataCollectionService,
@@ -59,7 +59,7 @@ export class TopicComponent implements OnInit {
     var followingTopics = new Follow()
     followingTopics.topicId = this.id
     followingTopics.userId = this.user.userId
-    followingTopics.users = this.user;
+    followingTopics.user = this.user;
     followingTopics.follow = this.follow;
     if (followingTopics.follow == false) {
       this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
