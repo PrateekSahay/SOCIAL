@@ -1,8 +1,8 @@
 import { user } from './user.model';
 
 export class Follow {
-    topicId: number
-    userId: string
+    TopicId: number
+    UserId: string
     follow: boolean
     user: user
 }

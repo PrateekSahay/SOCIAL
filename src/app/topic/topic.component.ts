@@ -59,8 +59,9 @@ export class TopicComponent implements OnInit {
     console.log(this.user.userId);
 
     var check = new Follow()
-    check.topicId = this.id
-    check.userId = this.user.userId
+    check.TopicId = this.id
+    //changed this.user.userId to userId
+    check.UserId = this.userId
     this.topicsService.getCheckingTopics(check).subscribe(
       (data) => {
         this._follow = data;
@@ -74,8 +75,8 @@ export class TopicComponent implements OnInit {
 
   toggle() {
     var followingTopics = new Follow()
-    followingTopics.topicId = this.id
-    followingTopics.userId = this.user.userId
+    followingTopics.TopicId = this.id
+    followingTopics.UserId = this.user.userId
     followingTopics.user = this.user;
     followingTopics.follow = this.follow;
     if (followingTopics.follow == false) {
