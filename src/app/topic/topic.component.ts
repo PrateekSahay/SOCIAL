@@ -22,7 +22,6 @@ export class TopicComponent implements OnInit {
   userId: any;
   userName: any;
   follow: any
-  _follow: any
   profileName: any
   user: user;
 
@@ -61,15 +60,8 @@ export class TopicComponent implements OnInit {
     var check = new Follow()
     check.TopicId = this.id
     //changed this.user.userId to userId
-    check.UserId = this.userId
-    this.topicsService.getCheckingTopics(check).subscribe(
-      (data) => {
-        this._follow = data;
-        console.log("--Follow--", this._follow)
-      }
-    )
+    check.UserId = this.user.userId
 
-    this.follow = this._follow
 
   }
 
@@ -79,13 +71,7 @@ export class TopicComponent implements OnInit {
     followingTopics.UserId = this.user.userId
     followingTopics.user = this.user;
     followingTopics.follow = this.follow;
-    if (followingTopics.follow == false) {
-      this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
-    }
-
-    else {
-      this.topicsService.deleteFollowingTopic(followingTopics).subscribe((data) => console.log(data));
-    }
+    this.topicsService.postFollowingTopics(followingTopics).subscribe((data) => console.log(data));
     this.follow = !this.follow;
   }
 
